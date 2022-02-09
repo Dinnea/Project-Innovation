@@ -71,6 +71,8 @@ public class GyroController : MonoBehaviour
         Vector3 rawGyroRotation = gyroScope.attitude.eulerAngles;
         Quaternion gyroRotation = Quaternion.Euler(-gyroScope.attitude.eulerAngles.x, gyroScope.attitude.eulerAngles.z, gyroScope.attitude.eulerAngles.y);
 
+        //---------------------------------------------Quaternion stuff-----------------------------------------------------------
+
         //new Quaternion(0.5f, 0.5f, -0.5f, 0.5f) * gyroScope.attitude * new Quaternion(1, 0, 0, 0);
         //new Quaternion(0.0f, 0.5f, 0.5f, 0.0f) *
 
@@ -102,16 +104,6 @@ public class GyroController : MonoBehaviour
         //Debug.Log("rotationRate: " + gyroScope.rotationRateUnbiased);
 
         Debug.Log("rotationrate x: " + gyroScope.rotationRateUnbiased.x);
-
-        // In Update, accumulate rotational change in these axes:
-        pitch += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
-        yaw += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
-        // Apply the result all at once:
-        cube.transform.eulerAngles = new Vector3(pitch, yaw, 0);
-
-        cube.transform.Translate(new Vector3(yaw * speed, -pitch * speed, 0));
-
-
     }
 
     void MoveZCube()
