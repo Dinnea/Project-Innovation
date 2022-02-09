@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 492496116}
-  speed: 0.1
+  speed: 0.01
   rotationAroundX: 0
   rotationAroundY: 0
   EnableMoveY: 0
