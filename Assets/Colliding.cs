@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Colliding : MonoBehaviour
 {
+    bool isSafe; 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -13,7 +14,17 @@ public class Colliding : MonoBehaviour
 
         else if (other.CompareTag("Safe"))
         {
-            Debug.Log("safe ig");
+            isSafe = true;
+            Debug.Log("entered building");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Safe"))
+        {
+            isSafe = false;
+            Debug.Log("left building");
         }
     }
 }
