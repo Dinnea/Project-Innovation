@@ -17,6 +17,7 @@ public class TwoDGyroController : MonoBehaviour
 
     void Start()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         if (SystemInfo.supportsGyroscope)
         {
             Debug.Log("Gyro is available");
@@ -74,7 +75,7 @@ public class TwoDGyroController : MonoBehaviour
             rotationAroundY = 0;
         }
 
-        character.transform.Translate(new Vector3(rotationAroundY * speed, -rotationAroundX * speed, 0));
+        character.transform.Translate(new Vector3(rotationAroundY,  -rotationAroundX, 0).normalized*speed);
     }
     
 }
