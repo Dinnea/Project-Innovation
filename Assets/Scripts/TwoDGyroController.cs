@@ -64,6 +64,16 @@ public class TwoDGyroController : MonoBehaviour
         rotationAroundX += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
         rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
 
+        if (gyroScope.attitude.x > -0.1 && gyroScope.attitude.x < 0.1)
+        {
+            rotationAroundX = 0;
+        }
+
+        if (gyroScope.attitude.y > -0.1 && gyroScope.attitude.y < 0.1)
+        {
+            rotationAroundY = 0;
+        }
+
         character.transform.Translate(new Vector3(rotationAroundY * speed, -rotationAroundX * speed, 0));
     }
     
