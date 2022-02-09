@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TwoDGyroController : MonoBehaviour
@@ -9,9 +7,11 @@ public class TwoDGyroController : MonoBehaviour
 
     private Gyroscope gyroScope;
 
+    public float rotationAroundX;
+    public float rotationAroundY;
+
     public bool EnableMoveY;
-    public bool MoveZCubeBool;
-    public bool RotateCubeBool;
+    public bool EnableMoveY_UsingRotationRate;
 
     bool isEnabled;
 
@@ -35,18 +35,15 @@ public class TwoDGyroController : MonoBehaviour
     {
         if (!isEnabled) return;
         if (EnableMoveY) MoveY();
+        if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
     }
-
-    //TO DO:
-    // add moveX
-    // set angle at which character doesn't move
 
     void MoveY()
     {
         Vector3 rawGyroRotation = gyroScope.attitude.eulerAngles;
-        Vector3 gyroRotation = new Vector3(-rawGyroRotation.x, rawGyroRotation.x, rawGyroRotation.x);
-
-        //Debug.Log("rotation: " + gyroRotation.x);
+        Vector3 gyroRotation = new Vector3(-rawGyroRotation.x, rawGyroRotation.z, rawGyroRotation.y);
+        
+        //Debug.Log("rotation: " + gyroRotation);
 
         if (gyroRotation.x > -90)
         {
@@ -60,4 +57,14 @@ public class TwoDGyroController : MonoBehaviour
             character.transform.Translate(0, z * speed, 0, Space.World);
         }
     }
+
+    void MoveXY_UsingRotationRate()
+    {
+        // In Update, accumulate rotational change in these axes:
+        rotationAroundX += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
+        rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
+
+        character.transform.Translate(new Vector3(rotationAroundY * speed, -rotationAroundX * speed, 0));
+    }
+    
 }
