@@ -27,4 +27,9 @@ public class Colliding : MonoBehaviour
             Debug.Log("left building");
         }
     }
+
+    public bool GetIsSafe()
+    {
+        return isSafe;
+    }
 }
