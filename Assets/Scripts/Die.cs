@@ -24,7 +24,7 @@ public class Die : MonoBehaviour
         if (!colliding.GetIsSafe() && bounce.GetIsGrounded())
         {
             Debug.Log("u fell down lmao");
-            die();
+            //die();
         }
     }
 

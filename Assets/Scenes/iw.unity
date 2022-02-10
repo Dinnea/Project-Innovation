@@ -1109,11 +1109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 137224281}
-  speed: 0
+  speed: 0.05
   rotationAroundX: 0
   rotationAroundY: 0
-  EnableMoveY: 1
-  EnableMoveY_UsingRotationRate: 0
+  EnableMoveY: 0
+  EnableMoveY_UsingRotationRate: 1
 --- !u!4 &1425036645
 Transform:
   m_ObjectHideFlags: 0
