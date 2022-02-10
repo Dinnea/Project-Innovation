@@ -5,6 +5,12 @@ using UnityEngine;
 public class Bounce : MonoBehaviour
 {
     public bool isGrounded;
+    AudioSource bounce;
+
+    private void Awake()
+    {
+        bounce = GetComponent<AudioSource>();
+    }
     public void SetGrounded()
     {
         isGrounded = !isGrounded;
@@ -18,5 +24,10 @@ public class Bounce : MonoBehaviour
     public bool GetIsGrounded()
     {
         return isGrounded;
+    }
+
+    public void PlayEffect()
+    {
+        bounce.Play();
     }
 }

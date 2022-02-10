@@ -14,25 +14,19 @@ public class Die : MonoBehaviour
         bounce = GetComponent<Bounce>();
         colliding = GetComponent<Colliding>();
         colliding.SetIsSafe(true);
-        //ui.gameObject.SetActive(false);
 
-        colliding.OnHitEnemy += hitEnemy;
     }
 
     private void Update()
     {
         if (!colliding.GetIsSafe() && bounce.GetIsGrounded())
         {
-            Debug.Log("u fell down lmao");
-            //die();
+            //Debug.Log("u fell down lmao");
+            ExecuteDie();
         }
     }
 
-    void hitEnemy(object sender, EventArgs e)
-    {
-        die();
-    }
-    void die()
+    public void ExecuteDie()
     {
        
         ui.gameObject.SetActive(true);

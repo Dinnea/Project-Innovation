@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 public class Colliding : MonoBehaviour
 {
     bool isSafe;
-    public event EventHandler OnHitEnemy;
-    //bool hitEnemy = false;
-    private void OnTriggerEnter(Collider other)
+
+    public UnityEvent OnHitEnemy;
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("u a ded bih");
-            OnHitEnemy?.Invoke(this, EventArgs.Empty);
+            OnHitEnemy?.Invoke();
         }//bug.Log(other.gameObject.name);
 
         else if (other.CompareTag("Safe"))
@@ -22,7 +23,7 @@ public class Colliding : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Safe"))
         {

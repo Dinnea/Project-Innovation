@@ -8,8 +8,8 @@ public class SidewaysMove : MonoBehaviour
     [SerializeField] private Vector3 pos2 = new Vector3(4, 0.1f, 0);
     [SerializeField] private Vector3 fineTuneTurn = new Vector3(0.1f, 0, 0);
     [SerializeField] private float time;
-    Rigidbody rb;
-    void MoveBody(Rigidbody body, Vector3 from, Vector3 to, float time)
+    Rigidbody2D rb;
+    void MoveBody(Rigidbody2D body, Vector3 from, Vector3 to, float time)
     {
         body.MovePosition(Vector3.Lerp(from, to, time));
         if (transform.position.x <= pos1.x)
@@ -26,7 +26,7 @@ public class SidewaysMove : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
