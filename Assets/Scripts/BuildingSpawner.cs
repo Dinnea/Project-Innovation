@@ -6,7 +6,8 @@ public class BuildingSpawner : MonoBehaviour
 {
     public GameObject BuildingPrefab;
     public GameObject Background;
-    public Transform cam;
+    public Transform Camera;
+
 
     public float BackgroundHeight;
 
@@ -32,7 +33,7 @@ public class BuildingSpawner : MonoBehaviour
 
     bool NewBackgroundNeeded()
     {
-        if (cam.position.y > currentBackgroundY)
+        if (Camera.position.y > currentBackgroundY)
         {
             return true;
         }

@@ -965,7 +965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
   Background: {fileID: 8409318097134948881, guid: 2901898ca491ff94abe502323b5634e9, type: 3}
-  cam: {fileID: 9779027}
+  Camera: {fileID: 0}
   BackgroundHeight: 23
 --- !u!4 &1450494420
 Transform:
@@ -1225,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5161853169044958529, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.59
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5161853169044958529, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
       propertyPath: m_LocalPosition.z
