@@ -8,12 +8,12 @@ public class MovementPC : MonoBehaviour
     private float vertical;
     private Vector3 moveDirection;
     [SerializeField]private float movementSpeed;
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     Bounce bounce;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         bounce = GetComponent<Bounce>();
     }
     private void Update()

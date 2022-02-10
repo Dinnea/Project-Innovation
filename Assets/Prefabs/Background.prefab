@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
+  XPosRange: {x: -6, y: 6}
+  YPosRange: {x: -10, y: 10}
+  amountOfBuildings: 4
 --- !u!1 &8409318097310964553
 GameObject:
   m_ObjectHideFlags: 0
