@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class Die : MonoBehaviour
@@ -8,6 +9,8 @@ public class Die : MonoBehaviour
     Bounce bounce;
     Colliding colliding;
     [SerializeField]Canvas ui;
+    public UnityEvent onFall;
+
 
     private void Awake()
     {
@@ -21,8 +24,8 @@ public class Die : MonoBehaviour
     {
         if (!colliding.GetIsSafe() && bounce.GetIsGrounded())
         {
-            //Debug.Log("u fell down lmao");
-            ExecuteDie();
+            onFall?.Invoke();//Debug.Log("u fell down lmao");
+            //ExecuteDie();
         }
     }
 

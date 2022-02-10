@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4897982258004594935}
   - component: {fileID: 4937669986401113953}
   - component: {fileID: 5265680101895711029}
+  - component: {fileID: 5044614298013364580}
   m_Layer: 0
   m_Name: pogoplaceholder0000
   m_TagString: Untagged
@@ -147,6 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b805a76b52b8b45bc38b913eb96f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEnemy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &4897982258004594936
 Rigidbody2D:
   serializedVersion: 4
@@ -303,6 +307,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
+--- !u!114 &5044614298013364580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897982258004594933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30aac3db532fb44187e12c10e0b3d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4897982258568143827
 GameObject:
   m_ObjectHideFlags: 0
