@@ -113,7 +113,7 @@ public class TwoDGyroController : MonoBehaviour
         
     }
 
-    void SaveDefaultRotation()
+    public void SaveDefaultRotation()
     {
         defaultRotation = gyroScope.attitude;
     }
