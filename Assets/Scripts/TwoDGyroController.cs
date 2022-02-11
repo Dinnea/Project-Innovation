@@ -4,6 +4,7 @@ public class TwoDGyroController : MonoBehaviour
 {
     public GameObject character;
     public float speed;
+    public float sensitivity;
 
     private Gyroscope gyroScope;
 
@@ -65,12 +66,12 @@ public class TwoDGyroController : MonoBehaviour
         rotationAroundX += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
         rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
 
-        if (gyroScope.attitude.x > -0.01 && gyroScope.attitude.x < 0.01)
+        if (gyroScope.attitude.x > -sensitivity && gyroScope.attitude.x < sensitivity)
         {
             rotationAroundX = 0;
         }
 
-        if (gyroScope.attitude.y > -0.01 && gyroScope.attitude.y < 0.01)
+        if (gyroScope.attitude.y > -sensitivity && gyroScope.attitude.y < sensitivity)
         {
             rotationAroundY = 0;
         }
