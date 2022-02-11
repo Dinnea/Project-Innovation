@@ -32,12 +32,6 @@ public class BuildingSpawner : MonoBehaviour
             previousBackground = currentBackground;
             currentBackground = Instantiate(Background, spawnPosition, Quaternion.identity);
             currentBackgroundY = spawnPosition.y;
-
-            /*
-            Instantiate(BuildingPrefab, new Vector3(spawnPosition.x - 2, spawnPosition.y - 7.5f, 0), Quaternion.identity);
-            Instantiate(BuildingPrefab, new Vector3(spawnPosition.x + 2, spawnPosition.y, 0), Quaternion.identity);
-            Instantiate(BuildingPrefab, new Vector3(spawnPosition.x, spawnPosition.y + 7.5f, 0), Quaternion.identity);
-            */
         }
     }
 
@@ -50,15 +44,4 @@ public class BuildingSpawner : MonoBehaviour
 
         return false;
     }
-    
-    /*
-    void SpawnBuilding()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            spawnPosition = new Vector3(Random.Range(MinXPos, MaxXPos), cam.position.y, 0);
-            Instantiate(BuildingPrefab, spawnPosition, Quaternion.identity);
-        }
-    }
-    */
 }

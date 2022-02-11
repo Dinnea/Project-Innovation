@@ -19,7 +19,7 @@ public class Colliding : MonoBehaviour
         else if (other.CompareTag("Safe"))
         {
             isSafe = true;
-            Debug.Log("entered building");
+            //Debug.Log("entered building");
         }
     }
 
@@ -28,7 +28,7 @@ public class Colliding : MonoBehaviour
         if (other.CompareTag("Safe"))
         {
             isSafe = false;
-            Debug.Log("left building");
+            //Debug.Log("left building");
         }
     }
 

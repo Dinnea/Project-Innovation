@@ -4,6 +4,8 @@ public class TwoDGyroController : MonoBehaviour
 {
     public GameObject character;
     public float speed;
+    public float speedX;
+    public float speedY;
     public float almostZero;
     public float sensitivity;
 
@@ -14,6 +16,7 @@ public class TwoDGyroController : MonoBehaviour
 
     public bool EnableMoveY;
     public bool EnableMoveY_UsingRotationRate;
+    [SerializeField]float upperClamp = 0.2f;
 
     [SerializeField]Bounce bounce;
 
@@ -45,16 +48,11 @@ public class TwoDGyroController : MonoBehaviour
         
         if (character != null)
         {
-           
+            if (!bounce.GetIsGrounded())
+            {
                 if (EnableMoveY) MoveY();
                 if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
-            
-            if (bounce.GetIsGrounded())
-            {
-                //rotationAroundX = 0;
-                //rotationAroundY = 0;
             }
-
         }
     }
 
@@ -87,29 +85,27 @@ public class TwoDGyroController : MonoBehaviour
         rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
 
 
-        /*
-        if (gyroScope.attitude.x > -almostZero+defaultRotation.x && gyroScope.attitude.x+defaultRotation.x < almostZero)
+        if (gyroScope.attitude.x > -almostZero+defaultRotation.x && gyroScope.attitude.x < almostZero+defaultRotation.x)
         {
+            Debug.Log("Reset X to zero");
             rotationAroundX = 0;
         }
 
-        if (gyroScope.attitude.y > -almostZero+defaultRotation.y && gyroScope.attitude.y+defaultRotation.y < almostZero)
+        if (gyroScope.attitude.y > -almostZero+defaultRotation.y && gyroScope.attitude.y < almostZero+defaultRotation.y)
         {
+            Debug.Log("Reset Y to zero");
             rotationAroundY = 0;
-        }/**/
+        }
 
 
         // if(Mathf.Abs(rotationAroundX) > sensitivity && Mathf.Abs(rotationAroundY) > sensitivity)
         //{
 
-        float moveY = -rotationAroundX;
+        float moveY = Mathf.Clamp(-rotationAroundX, 0, upperClamp);
         float moveX = rotationAroundY;
 
-        if (moveY > 0)
-        {
-            character.transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed);
-        }
-        //else rotationAroundY = 0;
+        Debug.Log(Mathf.Clamp(moveY, 0, upperClamp) * speedY);
+        character.transform.Translate(new Vector3(moveX * speedX, Mathf.Clamp(moveY, 0, Mathf.Infinity) * speedY));
         
 
             

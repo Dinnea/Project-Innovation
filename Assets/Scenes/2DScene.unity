@@ -696,12 +696,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1619458277}
   speed: 0.1
+  speedX: 0.3
+  speedY: 1
   almostZero: 0.1
   sensitivity: 0.01
   rotationAroundX: 0
   rotationAroundY: 0
   EnableMoveY: 0
   EnableMoveY_UsingRotationRate: 1
+  upperClamp: 0.5
   bounce: {fileID: 1619458285}
 --- !u!4 &667592818
 Transform:
