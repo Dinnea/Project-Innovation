@@ -16,7 +16,7 @@ public class Bounce : MonoBehaviour
         isGrounded = !isGrounded;
     }
 
-    public void SetNotGrounded(bool value)
+    public void SetIfGrounded(bool value)
     {
         isGrounded = value;
     }
