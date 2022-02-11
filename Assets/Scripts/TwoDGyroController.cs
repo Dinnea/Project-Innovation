@@ -36,6 +36,7 @@ public class TwoDGyroController : MonoBehaviour
     void Update()
     {
         if (!isEnabled) return;
+        if (character == null) return;
         if (EnableMoveY) MoveY();
         if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
     }
