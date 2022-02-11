@@ -5,42 +5,15 @@ using UnityEngine;
 public class Background : MonoBehaviour
 {
     public GameObject BuildingPrefab;
-    //public Vector2 XPosRange;
-    //public Vector2 YPosRange;
-
-    public int MinXPos;
-    public int MaxXPos;
-    public int MinYPos;
-    public int MaxYPos;
-
-    public int amountOfBuildings;
 
     private void Start()
     {
-        for (int i = 0; i < amountOfBuildings; i++)
-        {
-            InstantiateBuilding(new Vector3(Random.Range(MinXPos, MaxXPos+1), Random.Range(MinYPos, MaxYPos+1), 0));
-        }
-    }
+        var b1 = Instantiate(BuildingPrefab, new Vector3(transform.position.x - 2, transform.position.y - 7.5f, 0), Quaternion.identity);
+        var b2 = Instantiate(BuildingPrefab, new Vector3(transform.position.x + 2, transform.position.y, 0), Quaternion.identity);
+        var b3 = Instantiate(BuildingPrefab, new Vector3(transform.position.x, transform.position.y + 7.5f, 0), Quaternion.identity);
 
-    void InstantiateBuilding(Vector3 offsetFromCenter)
-    {
-        GameObject building = Instantiate(BuildingPrefab, transform.position + offsetFromCenter, Quaternion.identity);
-        building.transform.parent = this.transform;
-
-        /*
-        Collider2D[] colliders = new Collider2D[amountOfBuildings];
-        ContactFilter2D contactFilter = new ContactFilter2D();
-
-        Collider2D col = building.GetComponent<Collider2D>();
-        col.OverlapCollider(contactFilter, colliders);
-
-        if (colliders.Length > 1)
-        {
-            Debug.Log("Overlapping with other buildings, getting a new one.");
-            Destroy(building);
-            InstantiateBuilding(new Vector3(Random.Range(MinXPos, MaxXPos + 1), Random.Range(MinYPos, MaxYPos + 1)));
-        }
-        */
+        b1.transform.parent = this.transform;
+        b2.transform.parent = this.transform;
+        b3.transform.parent = this.transform;
     }
 }
