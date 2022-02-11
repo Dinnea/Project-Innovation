@@ -139,15 +139,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8409318097134948881}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d97fff02d2e55124c94f137e5f7db78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
-  XPosRange: {x: -6, y: 6}
-  YPosRange: {x: -10, y: 10}
-  amountOfBuildings: 4
+  MinXPos: -6
+  MaxXPos: 6
+  MinYPos: -10
+  MaxYPos: 10
+  amountOfBuildings: 2
 --- !u!1 &8409318097310964553
 GameObject:
   m_ObjectHideFlags: 0
