@@ -863,11 +863,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1213501507 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4897982258568143827, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
-  m_PrefabInstance: {fileID: 4897982258532673552}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1450148646
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
   Background: {fileID: 8409318097134948881, guid: 2901898ca491ff94abe502323b5634e9, type: 3}
-  Camera: {fileID: 0}
+  Camera: {fileID: 9779027}
   BackgroundHeight: 23
 --- !u!4 &1450494420
 Transform:
@@ -992,7 +987,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 

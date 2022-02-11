@@ -36,9 +36,12 @@ public class TwoDGyroController : MonoBehaviour
     void Update()
     {
         if (!isEnabled) return;
-        if (character == null) return;
-        if (EnableMoveY) MoveY();
-        if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
+        
+        if (character != null)
+        {
+            if (EnableMoveY) MoveY();
+            if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
+        }
     }
 
     void MoveY()
@@ -82,7 +85,7 @@ public class TwoDGyroController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (gyroScope == null) return; 
+        if (gyroScope == null || character == null) return; 
         //Gizmos.DrawWireSphere(character.transform.position, speed);
         var gyro = new Vector3(gyroScope.rotationRateUnbiased.y, gyroScope.rotationRateUnbiased.x, gyroScope.rotationRateUnbiased.z);
         //Gizmos.DrawRay(character.transform.position, gyro * 10.0f);
