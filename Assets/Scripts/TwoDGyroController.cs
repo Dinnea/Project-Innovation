@@ -4,6 +4,7 @@ public class TwoDGyroController : MonoBehaviour
 {
     public GameObject character;
     public float speed;
+    public float almostZero;
     public float sensitivity;
 
     private Gyroscope gyroScope;
@@ -13,6 +14,10 @@ public class TwoDGyroController : MonoBehaviour
 
     public bool EnableMoveY;
     public bool EnableMoveY_UsingRotationRate;
+
+    [SerializeField]Bounce bounce;
+
+    Quaternion defaultRotation;
 
     bool isEnabled;
 
@@ -25,6 +30,7 @@ public class TwoDGyroController : MonoBehaviour
             gyroScope = Input.gyro;
             gyroScope.enabled = true;
             isEnabled = true;
+            SaveDefaultRotation();
         }
         else
         {
@@ -39,8 +45,16 @@ public class TwoDGyroController : MonoBehaviour
         
         if (character != null)
         {
-            if (EnableMoveY) MoveY();
-            if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
+           
+                if (EnableMoveY) MoveY();
+                if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
+            
+            if (bounce.GetIsGrounded())
+            {
+                //rotationAroundX = 0;
+                //rotationAroundY = 0;
+            }
+
         }
     }
 
@@ -66,21 +80,46 @@ public class TwoDGyroController : MonoBehaviour
 
     void MoveXY_UsingRotationRate()
     {
+       
         // In Update, accumulate rotational change in these axes:
         rotationAroundX += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
+
         rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
 
-        if (gyroScope.attitude.x > -sensitivity && gyroScope.attitude.x < sensitivity)
+
+        /*
+        if (gyroScope.attitude.x > -almostZero+defaultRotation.x && gyroScope.attitude.x+defaultRotation.x < almostZero)
         {
             rotationAroundX = 0;
         }
 
-        if (gyroScope.attitude.y > -sensitivity && gyroScope.attitude.y < sensitivity)
+        if (gyroScope.attitude.y > -almostZero+defaultRotation.y && gyroScope.attitude.y+defaultRotation.y < almostZero)
         {
             rotationAroundY = 0;
-        }
+        }/**/
 
-        character.transform.Translate(new Vector3(rotationAroundY,  -rotationAroundX, 0).normalized*speed);
+
+        // if(Mathf.Abs(rotationAroundX) > sensitivity && Mathf.Abs(rotationAroundY) > sensitivity)
+        //{
+
+        float moveY = -rotationAroundX;
+        float moveX = rotationAroundY;
+
+        if (moveY > 0)
+        {
+            character.transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed);
+        }
+        //else rotationAroundY = 0;
+        
+
+            
+        //}
+        
+    }
+
+    void SaveDefaultRotation()
+    {
+        defaultRotation = gyroScope.attitude;
     }
 
     private void OnDrawGizmos()

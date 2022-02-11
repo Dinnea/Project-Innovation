@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: superfbi0000
       objectReference: {fileID: 0}
+    - target: {fileID: 734620745506437852, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 734620745506437854, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -692,11 +696,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1619458277}
   speed: 0.1
-  sensitivity: 0.05
+  almostZero: 0.1
+  sensitivity: 0.01
   rotationAroundX: 0
   rotationAroundY: 0
   EnableMoveY: 0
   EnableMoveY_UsingRotationRate: 1
+  bounce: {fileID: 1619458285}
 --- !u!4 &667592818
 Transform:
   m_ObjectHideFlags: 0
@@ -987,9 +993,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1619458285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4897982258004594939, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+  m_PrefabInstance: {fileID: 4897982258532673552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619458277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080c042c8c71ff54f95ddad670b5fa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1619458288 stripped
@@ -1171,7 +1188,7 @@ PrefabInstance:
       objectReference: {fileID: 1085133886}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.size
