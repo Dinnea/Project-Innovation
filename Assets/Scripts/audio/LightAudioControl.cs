@@ -16,6 +16,6 @@ public class LightAudioControl : MonoBehaviour
 
     private void Update()
     {
-        _light.intensity = (AudioPeer.audioBandBuffer[band] * (maxIntensity - minIntensity)) + minIntensity;
+        _light.intensity = (AudioData.audioBandBuffer[band] * (maxIntensity - minIntensity)) + minIntensity;
     }
 }

@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class AudioPeer : MonoBehaviour
+public class AudioData : MonoBehaviour
 {
+    AudioClip audioClip;
+    public bool useMic;
+    public string selectedDevice;
+
     AudioSource audioSource;
-    public static float[] samples = new float[512];
+    public static float[] samplesLeft = new float[512];
+    public static float[] samplesRight = new float[512];
     public static float[] frequencyBand = new float[8];
     public static float[] bandBuffer = new float[8];
     float[] bufferDecrease = new float[8];
 
-    public float[] frequencyBandMax = new float[8];
+    [SerializeField] float[] frequencyBandMax = new float[8];
     public static float[] audioBand = new float[8];
     public static float[] audioBandBuffer = new float[8];
 
@@ -19,12 +24,33 @@ public class AudioPeer : MonoBehaviour
     public static float amplitudeBuffer;
     float amplitudeMax;
     public float audioProfile;
-
+    public enum channel { Stereo, Left, Right};
+    public channel chosenChannel = new channel();
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         AudioProfile(audioProfile);
+
+        //microphone
+        if (useMic)
+        {
+            if(Microphone.devices.Length > 0)
+            {
+                selectedDevice = Microphone.devices[0].ToString();
+                audioSource.clip = Microphone.Start(selectedDevice, false, 10, AudioSettings.outputSampleRate);
+            }
+            else
+            {
+                Debug.Log("No mics");
+                useMic = false;
+            }
+        }
+        else
+        {
+            audioSource.clip = audioClip;
+        }
+        audioSource.Play();
     }
 
     private void Update()
@@ -37,7 +63,8 @@ public class AudioPeer : MonoBehaviour
     }
     void GetSpectrumAudioSource()
     {
-        audioSource.GetSpectrumData(samples, 0, FFTWindow.Blackman);
+        audioSource.GetSpectrumData(samplesLeft, 0, FFTWindow.Blackman);
+        audioSource.GetSpectrumData(samplesRight, 1, FFTWindow.Blackman);
     }
 
     void MakeFrequencyBands()
@@ -77,7 +104,19 @@ public class AudioPeer : MonoBehaviour
 
             for(int j = 0; j<sampleCount; j++)
             {
-                average += samples[count] *(count+1);
+                switch (chosenChannel)
+                {
+                    case channel.Left:
+                        average += samplesLeft[count] * (count + 1);
+                        break;
+                    case channel.Stereo:
+                        average += (samplesLeft[count] + samplesRight[count]) * (count + 1);
+                        break;
+                    case channel.Right:
+                        average += + samplesRight[count] * (count + 1);
+                        break;
+                }
+               
                 count++;
             }
             average /= count;
