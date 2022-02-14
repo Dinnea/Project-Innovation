@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 4937669986401113953}
   - component: {fileID: 5265680101895711029}
   - component: {fileID: 5044614298013364580}
-  m_Layer: 0
+  - component: {fileID: 1958965591170886470}
+  - component: {fileID: 394384247926758121}
+  m_Layer: 2
   m_Name: pogoplaceholder0000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,6 +257,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30aac3db532fb44187e12c10e0b3d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1958965591170886470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897982258004594933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361159374ace5e94c8a7f71570d63a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHitEnemy:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!70 &394384247926758121
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897982258004594933}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.71, y: 2.61}
+  m_Direction: 0
 --- !u!1 &4897982258568143827
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,21 +348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b805a76b52b8b45bc38b913eb96f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnHitEnemy:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5265680101895711029}
-        m_TargetAssemblyTypeName: Die, Assembly-CSharp
-        m_MethodName: ExecuteDie
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!50 &1740979670372523778
 Rigidbody2D:
   serializedVersion: 4

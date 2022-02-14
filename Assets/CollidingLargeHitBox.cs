@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
-public class Colliding : MonoBehaviour
+public class CollidingLargeHitBox : MonoBehaviour
 {
+
     bool isSafe;
 
+    public UnityEvent OnHitEnemy;
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Safe"))
+        if (other.CompareTag("Enemy"))
         {
-            isSafe = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Safe"))
-        {
-            isSafe = false;
+            Debug.Log("u a ded bih");
+            OnHitEnemy?.Invoke();
         }
     }
 
@@ -32,4 +27,5 @@ public class Colliding : MonoBehaviour
     {
         isSafe = value;
     }
+
 }
