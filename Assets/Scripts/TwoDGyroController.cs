@@ -97,10 +97,6 @@ public class TwoDGyroController : MonoBehaviour
             rotationAroundY = 0;
         }
 
-
-        // if(Mathf.Abs(rotationAroundX) > sensitivity && Mathf.Abs(rotationAroundY) > sensitivity)
-        //{
-
         float moveY = Mathf.Clamp(-rotationAroundX, 0, upperClamp);
         float moveX = rotationAroundY;
 
@@ -108,9 +104,6 @@ public class TwoDGyroController : MonoBehaviour
         character.transform.Translate(new Vector3(moveX * speedX, Mathf.Clamp(moveY, 0, Mathf.Infinity) * speedY));
         
 
-            
-        //}
-        
     }
 
     public void SaveDefaultRotation()
