@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5265680101895711029}
   - component: {fileID: 5044614298013364580}
   - component: {fileID: 1958965591170886470}
+  - component: {fileID: 686927408585150086}
   - component: {fileID: 394384247926758121}
   m_Layer: 2
   m_Name: pogoplaceholder0000
@@ -272,6 +273,22 @@ MonoBehaviour:
   OnHitEnemy:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &686927408585150086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897982258004594933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dffa209498891e40b207b35cc349841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gyroScript: {fileID: 0}
+  angle: 10
+  almostZero: 0.05
+  rotationSpeed: 10
 --- !u!70 &394384247926758121
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

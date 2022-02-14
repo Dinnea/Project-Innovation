@@ -3,26 +3,22 @@ using UnityEngine;
 public class TwoDGyroController : MonoBehaviour
 {
     public GameObject character;
-    public float speed;
+    [SerializeField] Bounce bounce;
+
     public float speedX;
     public float speedY;
     public float almostZero;
-    public float sensitivity;
-
-    private Gyroscope gyroScope;
-
+    [SerializeField] float upperClamp = 0.2f;
+    public bool EnableMoveY_UsingRotationRate;
+    
+    [HideInInspector]
     public float rotationAroundX;
+    [HideInInspector]
     public float rotationAroundY;
 
-    public bool EnableMoveY;
-    public bool EnableMoveY_UsingRotationRate;
-    [SerializeField]float upperClamp = 0.2f;
-
-    [SerializeField]Bounce bounce;
-
-    Quaternion defaultRotation;
-
-    bool isEnabled;
+    private Gyroscope gyroScope;
+    private Quaternion defaultRotation;
+    private bool isEnabled;
 
     void Start()
     {
@@ -50,29 +46,8 @@ public class TwoDGyroController : MonoBehaviour
         {
             if (!bounce.GetIsGrounded())
             {
-                if (EnableMoveY) MoveY();
                 if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
             }
-        }
-    }
-
-    void MoveY()
-    {
-        Vector3 rawGyroRotation = gyroScope.attitude.eulerAngles;
-        Vector3 gyroRotation = new Vector3(-rawGyroRotation.x, rawGyroRotation.z, rawGyroRotation.y);
-        
-        //Debug.Log("rotation: " + gyroRotation);
-
-        if (gyroRotation.x > -90)
-        {
-            Debug.Log("positive");
-            character.transform.Translate(0, gyroRotation.x * speed, 0, Space.World);
-        }
-        else if (gyroRotation.x < -270)
-        {
-            Debug.Log("negative");
-            float z = 90 + (gyroRotation.x + 270);
-            character.transform.Translate(0, z * speed, 0, Space.World);
         }
     }
 
@@ -87,23 +62,22 @@ public class TwoDGyroController : MonoBehaviour
 
         if (gyroScope.attitude.x > -almostZero+defaultRotation.x && gyroScope.attitude.x < almostZero+defaultRotation.x)
         {
-            Debug.Log("Reset X to zero");
+            //Debug.Log("Reset X to zero");
             rotationAroundX = 0;
         }
 
         if (gyroScope.attitude.y > -almostZero+defaultRotation.y && gyroScope.attitude.y < almostZero+defaultRotation.y)
         {
-            Debug.Log("Reset Y to zero");
+            //Debug.Log("Reset Y to zero");
             rotationAroundY = 0;
         }
 
         float moveY = Mathf.Clamp(-rotationAroundX, 0, upperClamp);
         float moveX = rotationAroundY;
 
-        Debug.Log(Mathf.Clamp(moveY, 0, upperClamp) * speedY);
-        character.transform.Translate(new Vector3(moveX * speedX, Mathf.Clamp(moveY, 0, Mathf.Infinity) * speedY));
-        
+        Debug.Log("moveY:" + moveY);
 
+        character.transform.Translate(new Vector3(moveX * speedX, Mathf.Clamp(moveY, 0, Mathf.Infinity) * speedY));
     }
 
     public void SaveDefaultRotation()

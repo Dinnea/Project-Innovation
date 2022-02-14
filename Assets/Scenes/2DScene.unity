@@ -700,17 +700,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 78624386}
-  speed: 0.1
+  bounce: {fileID: 1619458285}
   speedX: 0.3
   speedY: 1
   almostZero: 0.1
-  sensitivity: 0.01
+  upperClamp: 0.15
+  EnableMoveY_UsingRotationRate: 1
   rotationAroundX: 0
   rotationAroundY: 0
-  EnableMoveY: 0
-  EnableMoveY_UsingRotationRate: 1
-  upperClamp: 0.5
-  bounce: {fileID: 1619458285}
 --- !u!4 &667592818
 Transform:
   m_ObjectHideFlags: 0
@@ -1236,7 +1233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 
@@ -1252,22 +1249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080c042c8c71ff54f95ddad670b5fa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1619458286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619458277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dffa209498891e40b207b35cc349841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gyroScript: {fileID: 667592817}
-  angle: 10
-  almostZero: 0.05
-  rotationSpeed: 10
 --- !u!114 &1619458288 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5044614298013364580, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
@@ -1381,6 +1362,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 394384247926758121, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0702784
+      objectReference: {fileID: 0}
+    - target: {fileID: 394384247926758121, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Size.y
+      value: 2.0058184
+      objectReference: {fileID: 0}
+    - target: {fileID: 394384247926758121, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394384247926758121, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.023693442
+      objectReference: {fileID: 0}
+    - target: {fileID: 394384247926758121, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.053310186
+      objectReference: {fileID: 0}
+    - target: {fileID: 686927408585150086, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: gyroScript
+      value: 
+      objectReference: {fileID: 667592817}
     - target: {fileID: 1958965591170886470, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitEnemy.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1582,6 +1587,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4937669986401113953, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: MinDistance
+      value: 0.9407666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937669986401113953, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: f2eb5e2128835a54e8df950dad6cb143, type: 3}
@@ -1591,7 +1600,7 @@ PrefabInstance:
       objectReference: {fileID: 1085133886}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.size
@@ -1621,9 +1630,25 @@ PrefabInstance:
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7327038933395967099, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: movementSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654848096324050621, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5556977
+      objectReference: {fileID: 0}
     - target: {fileID: 8654848096324050621, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Size.y
-      value: 1.22
+      value: 0.5174773
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654848096324050621, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.004866421
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654848096324050621, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.8138499
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
