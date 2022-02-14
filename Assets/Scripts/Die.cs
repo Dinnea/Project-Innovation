@@ -15,7 +15,7 @@ public class Die : MonoBehaviour
     private void Awake()
     {
         bounce = GetComponent<Bounce>();
-        colliding = GetComponent<Colliding>();
+        colliding = GetComponentInParent<Colliding>();
         colliding.SetIsSafe(true);
 
     }

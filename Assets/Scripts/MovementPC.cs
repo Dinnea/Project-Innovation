@@ -14,7 +14,7 @@ public class MovementPC : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        bounce = GetComponent<Bounce>();
+        bounce = GetComponentInChildren<Bounce>();
     }
     private void Update()
     {
