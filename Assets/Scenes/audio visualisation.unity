@@ -1953,6 +1953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a9b305d2d2a6643b094464056d66b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpTime: 0.2
+  myPos:
+  - {x: 0, y: 4, z: 0}
+  treshold: 0.5
 --- !u!1 &1141175510
 GameObject:
   m_ObjectHideFlags: 0

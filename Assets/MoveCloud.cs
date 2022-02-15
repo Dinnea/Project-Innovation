@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveClouds : MonoBehaviour
+public class MoveCloud : MonoBehaviour
 {
     [SerializeField] [Range(0f, 4f)] float lerpTime;
     [SerializeField] Vector3[] myPos;
-
-    int posIndex = 0;
     int length;
 
+    [SerializeField] float treshold = 0.5f;
     float t = 0f;
 
     private void Start()
@@ -19,6 +18,14 @@ public class MoveClouds : MonoBehaviour
 
     private void Update()
     {
+        if(AudioData.amplitude > treshold)
+        {
+            MovingClouds(0);
+        }
+    }
+
+    void MovingClouds(int posIndex)
+    {
         transform.position = Vector3.Lerp(transform.position, myPos[posIndex], lerpTime * Time.deltaTime);
 
         t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
@@ -26,8 +33,6 @@ public class MoveClouds : MonoBehaviour
         if (t > 0.9f)
         {
             t = 0f;
-            posIndex++;
-            posIndex = (posIndex >= length) ? 0 : posIndex;
         }
     }
 }
