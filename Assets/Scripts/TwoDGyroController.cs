@@ -2,20 +2,19 @@ using UnityEngine;
 
 public class TwoDGyroController : MonoBehaviour
 {
-    public AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
-
     public GameObject character;
     [SerializeField] Bounce bounce;
 
+    [Header("Variables")]
+    public AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
     public float speedX;
     public float speedY;
     public float almostZero;
-    [SerializeField] float upperClamp = 0.2f;
-    public bool EnableMoveY_UsingRotationRate;
+    [SerializeField] float upperClamp = 0.15f;
 
-    //[HideInInspector]
+    [HideInInspector]
     public float rotationAroundX;
-    //[HideInInspector]
+    [HideInInspector]
     public float rotationAroundY;
 
     private Gyroscope gyroScope;
@@ -56,52 +55,69 @@ public class TwoDGyroController : MonoBehaviour
         {
             if (!bounce.GetIsGrounded())
             {
-                if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
+                MoveXY_UsingRotationRate();
             }
         }
+
+        checkBoundaries();
     }
 
     void MoveXY_UsingRotationRate()
     {
+        UpdateRotations();
+        ResetXYRotations();
 
-        // In Update, accumulate rotational change in these axes:
+        t += Time.deltaTime;
+        float scaledRotation = Mathf.Clamp(-rotationAroundX / upperClamp, 0, 1);
+
+        //y speed depends on curve (see inspector), the curve repeats every animation loop.
+        //max y speed depends on the current rotation.
+        float moveY = Mathf.Lerp(0, scaledRotation * speedY, curve.Evaluate(t / animLength));
+        float moveX = rotationAroundY * speedX;
+
+        Vector3 moveVector = new Vector3(moveX, moveY);
+
+        //make sure vector doesn't get bigger than y movement vector
+        if (moveVector.magnitude > moveVector.y && moveVector.y > Mathf.Abs(moveVector.x))
+        {
+            moveVector = moveVector.normalized * moveVector.y;
+        }
+
+        //move character
+        character.transform.Translate(moveVector);
+    }
+
+    private void UpdateRotations()
+    {
+        //Accumulate rotational change in these axes:
         rotationAroundX += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
-
         rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
+    }
 
-
+    private void ResetXYRotations()
+    {
         if (gyroScope.attitude.x > -almostZero + defaultRotation.x && gyroScope.attitude.x < almostZero + defaultRotation.x)
         {
-            //Debug.Log("Reset X to zero");
             rotationAroundX = 0;
         }
 
         if (gyroScope.attitude.y > -almostZero + defaultRotation.y && gyroScope.attitude.y < almostZero + defaultRotation.y)
         {
-            //Debug.Log("Reset Y to zero");
             rotationAroundY = 0;
         }
+    }
 
-        float moveX = rotationAroundY;
-        float scaledRotation = Mathf.Clamp(-rotationAroundX / upperClamp, 0, 1);
-
-        t += Time.deltaTime;
-
-        float moveY = Mathf.Lerp(0, scaledRotation * speedY, curve.Evaluate(t / animLength));
-
-        Vector3 a = new Vector3(moveX * speedX, moveY);
-
-        //make sure vector doesn't get bigger than y movement vector
-        if (a.magnitude > a.y && a.y > Mathf.Abs(a.x))
+    private void checkBoundaries()
+    {
+        if (character.transform.position.x > 6.5f)
         {
-            a = a.normalized * a.y;
+            character.transform.position = new Vector3(6.5f, character.transform.position.y);
         }
 
-        character.transform.Translate(a);
-
-        //character.transform.Translate(new Vector3(moveX * speedX, Mathf.Clamp(moveY, 0, Mathf.Infinity) * speedY));
-
-
+        if (character.transform.position.x < -6.5f)
+        {
+            character.transform.position = new Vector3(-6.5f, character.transform.position.y);
+        }
     }
 
     public void SaveDefaultRotation()

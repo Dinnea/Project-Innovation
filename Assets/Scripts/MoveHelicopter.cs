@@ -29,17 +29,20 @@ public class MoveHelicopter : MonoBehaviour
 
         if (hasHelicopterArrived)
         {
+            transform.Translate(new Vector3(0, 1, 0) * speed);
             StayInScreen();
         }
         else
         {
+            transform.Translate(new Vector3(0, 1, 0) * speed * 5);
+
             if (transform.position.y > camera.transform.position.y + offsetY)
             {
                 hasHelicopterArrived = true;
             }
         }
         
-        transform.Translate(new Vector3(0, 1, 0) * speed);
+        
     }
 
     void StayInScreen()
