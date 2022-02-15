@@ -109,6 +109,7 @@ public class TwoDGyroController : MonoBehaviour
 
     private void checkBoundaries()
     {
+        /*
         if (character.transform.position.x > 6.5f)
         {
             character.transform.position = new Vector3(6.5f, character.transform.position.y);
@@ -118,6 +119,9 @@ public class TwoDGyroController : MonoBehaviour
         {
             character.transform.position = new Vector3(-6.5f, character.transform.position.y);
         }
+        */
+
+        character.transform.position = new Vector3(Mathf.Clamp(character.transform.position.x, -6.5f, 6.5f), character.transform.position.y);
     }
 
     public void SaveDefaultRotation()
