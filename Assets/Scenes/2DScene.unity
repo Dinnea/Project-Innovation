@@ -255,6 +255,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1619458277}
   OffsetY: 1
+--- !u!1 &78624386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4897982258568143827, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+  m_PrefabInstance: {fileID: 4897982258532673552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &412749954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -268,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734620745506437852, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 734620745506437854, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}
       propertyPath: m_RootOrder
@@ -694,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9043d7684cb234b46ad20d748dbb79fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1619458277}
+  character: {fileID: 78624386}
   speed: 0.1
   speedX: 0.3
   speedY: 1
@@ -1231,7 +1236,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 
@@ -1247,6 +1252,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080c042c8c71ff54f95ddad670b5fa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1619458286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619458277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dffa209498891e40b207b35cc349841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gyroScript: {fileID: 667592817}
+  angle: 10
+  almostZero: 0.05
+  rotationSpeed: 10
 --- !u!114 &1619458288 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5044614298013364580, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
@@ -1504,6 +1525,14 @@ PrefabInstance:
       propertyPath: OnHitEnemy.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4897982258004594940, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897982258004594941, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4897982258568143827, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Name
       value: player
@@ -1562,7 +1591,7 @@ PrefabInstance:
       objectReference: {fileID: 1085133886}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.size
