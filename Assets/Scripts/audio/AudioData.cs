@@ -38,7 +38,9 @@ public class AudioData : MonoBehaviour
             if(Microphone.devices.Length > 0)
             {
                 selectedDevice = Microphone.devices[0].ToString();
-                audioSource.clip = Microphone.Start(selectedDevice, false, 10, AudioSettings.outputSampleRate);
+                Debug.Log(selectedDevice);
+               // StartMic(10);
+
             }
             else
             {
@@ -49,12 +51,14 @@ public class AudioData : MonoBehaviour
         else
         {
             audioSource.clip = audioClip;
+            audioSource.Play();
         }
-        audioSource.Play();
+       
     }
 
     private void Update()
     {
+        Debug.Log(amplitude);
         GetSpectrumAudioSource();
         MakeFrequencyBands();
         BandBuffer();
@@ -185,5 +189,15 @@ public class AudioData : MonoBehaviour
         {
             frequencyBandMax[i] = profile;
         }
+    }
+
+    public void StartMic(int seconds)
+    {
+        audioSource.clip = Microphone.Start(selectedDevice, false, seconds, AudioSettings.outputSampleRate);
+        CallAfterDelay.Create(0.5f,
+            () => {
+                audioSource.Play();
+            }
+        );
     }
 }

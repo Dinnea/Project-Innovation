@@ -9,6 +9,7 @@ public class ScaleOnAmplitude : MonoBehaviour
     Material material;
     [Space]
     public float red, green, blue;
+    [SerializeField] float treshold = 0.2f;
 
     private void Start()
     {
@@ -19,15 +20,22 @@ public class ScaleOnAmplitude : MonoBehaviour
     {
         if (!useBuffer)
         {
-            transform.localScale = new Vector3((AudioData.amplitude * maxScale) + startScale, (AudioData.amplitude * maxScale) + startScale, (AudioData.amplitude * maxScale) + startScale);
-            Color color = new Color(red * AudioData.amplitude, green * AudioData.amplitude, blue * AudioData.amplitude);
-            material.SetColor("_EmissionColor", color);
+            Scale(AudioData.amplitude, treshold);
         }
        else
         {
-            transform.localScale = new Vector3((AudioData.amplitudeBuffer * maxScale) + startScale, (AudioData.amplitudeBuffer * maxScale) + startScale, (AudioData.amplitudeBuffer * maxScale) + startScale);
-            Color color = new Color(red * AudioData.amplitudeBuffer, green * AudioData.amplitudeBuffer, blue * AudioData.amplitudeBuffer);
+            Scale(AudioData.amplitudeBuffer, treshold);
+        }
+    }
+
+    void Scale(float amplitude, float treshold = 0)
+    {
+        if (amplitude > treshold)
+        {
+            transform.localScale = new Vector3((amplitude * maxScale) + startScale, (amplitude * maxScale) + startScale, (amplitude * maxScale) + startScale);
+            Color color = new Color(red * amplitude, green * amplitude, blue * amplitude);
             material.SetColor("_EmissionColor", color);
         }
+        else transform.localScale = new Vector3(startScale, startScale, startScale);
     }
 }
