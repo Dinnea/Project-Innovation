@@ -26,6 +26,8 @@ public class AudioData : MonoBehaviour
     public float audioProfile;
     public enum channel { Stereo, Left, Right};
     public channel chosenChannel = new channel();
+    [SerializeField][Range(0, 1)] float setTreshold;
+    public static float treshold;
 
     private void Start()
     {
@@ -58,7 +60,8 @@ public class AudioData : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(amplitude);
+        treshold = setTreshold;
+        //Debug.Log(amplitude);
         GetSpectrumAudioSource();
         MakeFrequencyBands();
         BandBuffer();

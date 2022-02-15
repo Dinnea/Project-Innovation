@@ -8,19 +8,36 @@ public class MoveCloud : MonoBehaviour
     [SerializeField] Vector3[] myPos;
     int length;
 
-    [SerializeField] float treshold = 0.5f;
+
     float t = 0f;
 
     private void Start()
     {
+        Debug.Log(Screen.width / 2);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Debug.Log(screenPos);
         length = myPos.Length;
+        myPos[0].y = transform.position.y;
+        myPos[1].y = transform.position.y;
     }
 
     private void Update()
     {
-        if(AudioData.amplitude > treshold)
+
+        if(AudioData.amplitude > AudioData.treshold)
         {
-            MovingClouds(0);
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+            if (screenPos.x < Screen.width / 2)
+            {
+                Debug.Log("left");
+                MovingClouds(0);
+            }
+            else if (screenPos.x > Screen.width / 2)
+            {
+                MovingClouds(1);
+                Debug.Log("right");
+            }
+           
         }
     }
 

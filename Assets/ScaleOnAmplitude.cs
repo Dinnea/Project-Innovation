@@ -9,7 +9,7 @@ public class ScaleOnAmplitude : MonoBehaviour
     Material material;
     [Space]
     public float red, green, blue;
-    [SerializeField] float treshold = 0.2f;
+    //[SerializeField] float treshold = 0.2f;
 
     private void Start()
     {
@@ -20,11 +20,11 @@ public class ScaleOnAmplitude : MonoBehaviour
     {
         if (!useBuffer)
         {
-            Scale(AudioData.amplitude, treshold);
+            Scale(AudioData.amplitude, AudioData.treshold);
         }
        else
         {
-            Scale(AudioData.amplitudeBuffer, treshold);
+            Scale(AudioData.amplitudeBuffer, AudioData.treshold);
         }
     }
 
