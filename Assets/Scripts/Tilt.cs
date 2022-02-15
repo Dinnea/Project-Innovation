@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Tilt : MonoBehaviour
 {
-    //private GameObject playerSprite;
-    public TwoDGyroController gyroScript;
-
     public float angle;
     public float almostZero;
     public float rotationSpeed;
 
+    private TwoDGyroController gyroScript;
     private Quaternion tiltedRotationLeft;
     private Quaternion tiltedRotationRight;
 
     private void Start()
     {
-        //playerSprite = GetComponentInChildren<GameObject>();
-
+        gyroScript = GetComponent<TwoDGyroController>();
         tiltedRotationLeft = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, -angle));
         tiltedRotationRight = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, angle));
     }
