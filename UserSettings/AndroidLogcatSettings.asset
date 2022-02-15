@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
         "name": "com.DefaultCompany.Myproject",
-        "processId": 21253,
+        "processId": 22326,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,12 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.DefaultCompany.Myproject",
             "processId": 21253,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.DefaultCompany.Myproject",
+            "processId": 22326,
             "exited": false
         }
     ],
