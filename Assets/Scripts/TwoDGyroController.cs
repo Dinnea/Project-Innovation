@@ -3,26 +3,27 @@ using UnityEngine;
 public class TwoDGyroController : MonoBehaviour
 {
     public GameObject character;
-    public float speed;
+    [SerializeField] Bounce bounce;
+
+    [Header("Variables")]
+    public AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
     public float speedX;
     public float speedY;
     public float almostZero;
-    public float sensitivity;
+    [SerializeField] float upperClamp = 0.15f;
 
-    private Gyroscope gyroScope;
-
+    [HideInInspector]
     public float rotationAroundX;
+    [HideInInspector]
     public float rotationAroundY;
 
-    public bool EnableMoveY;
-    public bool EnableMoveY_UsingRotationRate;
-    [SerializeField]float upperClamp = 0.2f;
+    private Gyroscope gyroScope;
+    private Quaternion defaultRotation;
+    private bool isEnabled;
+    private Animator animator;
 
-    [SerializeField]Bounce bounce;
-
-    Quaternion defaultRotation;
-
-    bool isEnabled;
+    float t = 0.0f;
+    float animLength;
 
     void Start()
     {
@@ -40,80 +41,109 @@ public class TwoDGyroController : MonoBehaviour
             Debug.Log("Gyro is not available");
             isEnabled = false;
         }
+
+        animator = character.GetComponentInChildren<Animator>();
+        animLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        Debug.Log("AnimLength: " + animLength);
     }
 
     void Update()
     {
         if (!isEnabled) return;
-        
+
         if (character != null)
         {
             if (!bounce.GetIsGrounded())
             {
-                if (EnableMoveY) MoveY();
-                if (EnableMoveY_UsingRotationRate) MoveXY_UsingRotationRate();
+                MoveXY_UsingRotationRate();
             }
         }
-    }
 
-    void MoveY()
-    {
-        Vector3 rawGyroRotation = gyroScope.attitude.eulerAngles;
-        Vector3 gyroRotation = new Vector3(-rawGyroRotation.x, rawGyroRotation.z, rawGyroRotation.y);
-        
-        //Debug.Log("rotation: " + gyroRotation);
-
-        if (gyroRotation.x > -90)
-        {
-            Debug.Log("positive");
-            character.transform.Translate(0, gyroRotation.x * speed, 0, Space.World);
-        }
-        else if (gyroRotation.x < -270)
-        {
-            Debug.Log("negative");
-            float z = 90 + (gyroRotation.x + 270);
-            character.transform.Translate(0, z * speed, 0, Space.World);
-        }
+        checkBoundaries();
     }
 
     void MoveXY_UsingRotationRate()
     {
-       
-        // In Update, accumulate rotational change in these axes:
-        rotationAroundX += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
+        UpdateRotations();
+        ResetXYRotations();
 
-        rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
+        t += Time.deltaTime;
+        float scaledRotation = Mathf.Clamp(-rotationAroundX / upperClamp, 0, 1);
 
+        //y speed depends on curve (see inspector), the curve repeats every animation loop.
+        //max y speed depends on the current rotation.
+        float moveY = Mathf.Lerp(0, scaledRotation * speedY, curve.Evaluate(t / animLength));
+        float moveX = rotationAroundY * speedX;
 
-        if (gyroScope.attitude.x > -almostZero+defaultRotation.x && gyroScope.attitude.x < almostZero+defaultRotation.x)
+        Vector3 moveVector = new Vector3(moveX, moveY);
+
+        //make sure vector doesn't get bigger than y movement vector
+        if (moveVector.magnitude > moveVector.y && moveVector.y > Mathf.Abs(moveVector.x))
         {
-            Debug.Log("Reset X to zero");
+            moveVector = moveVector.normalized * moveVector.y;
+        }
+
+        //move character
+        character.transform.Translate(moveVector);
+    }
+
+    private void UpdateRotations()
+    {
+        //Accumulate rotational change in these axes:
+        rotationAroundX += gyroScope.rotationRateUnbiased.x * Time.deltaTime;
+        rotationAroundY += gyroScope.rotationRateUnbiased.y * Time.deltaTime;
+    }
+
+    private void ResetXYRotations()
+    {
+        if (gyroScope.attitude.x > -almostZero + defaultRotation.x && gyroScope.attitude.x < almostZero + defaultRotation.x)
+        {
             rotationAroundX = 0;
         }
 
-        if (gyroScope.attitude.y > -almostZero+defaultRotation.y && gyroScope.attitude.y < almostZero+defaultRotation.y)
+        if (gyroScope.attitude.y > -almostZero + defaultRotation.y && gyroScope.attitude.y < almostZero + defaultRotation.y)
         {
-            Debug.Log("Reset Y to zero");
             rotationAroundY = 0;
         }
+    }
 
-        float moveY = Mathf.Clamp(-rotationAroundX, 0, upperClamp);
-        float moveX = rotationAroundY;
+    private void checkBoundaries()
+    {
+        /*
+        if (character.transform.position.x > 6.5f)
+        {
+            character.transform.position = new Vector3(6.5f, character.transform.position.y);
+        }
 
-        Debug.Log(Mathf.Clamp(moveY, 0, upperClamp) * speedY);
-        character.transform.Translate(new Vector3(moveX * speedX, Mathf.Clamp(moveY, 0, Mathf.Infinity) * speedY));
-        
+        if (character.transform.position.x < -6.5f)
+        {
+            character.transform.position = new Vector3(-6.5f, character.transform.position.y);
+        }
+        */
 
+        character.transform.position = new Vector3(Mathf.Clamp(character.transform.position.x, -6.5f, 6.5f), character.transform.position.y);
     }
 
     public void SaveDefaultRotation()
     {
+        if (defaultRotation != null)
+        {
+            Debug.Log("DefaultRotation: " + defaultRotation);
+        }
         defaultRotation = gyroScope.attitude;
+
+        
+        Debug.Log("NEW DefaultRotation: " + defaultRotation);
+    }
+
+    public void SetTAtZero()
+    {
+        t = 0;
     }
 
     private void OnDrawGizmos()
     {
-        if (gyroScope == null || character == null) return; 
+        if (gyroScope == null || character == null) return;
         //Gizmos.DrawWireSphere(character.transform.position, speed);
         var gyro = new Vector3(gyroScope.rotationRateUnbiased.y, gyroScope.rotationRateUnbiased.x, gyroScope.rotationRateUnbiased.z);
         //Gizmos.DrawRay(character.transform.position, gyro * 10.0f);

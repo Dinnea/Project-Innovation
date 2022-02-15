@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class BuildingSpawner : MonoBehaviour
 {
+    [Header("Objects needed")]
     public GameObject BuildingPrefab;
     public GameObject Background;
     public Transform Camera;
+    public Transform currentBuilding;
 
-
+    [Header(" ")]
     public float BackgroundHeight;
+
+    [Header("Y distance between buildings")]
+    public float maxDistance;
+    public float minDistance;
+
+    [Header("X offset")]
+    public float maxOffset;
+    public float minOffset;
 
     private Vector3 spawnPosition;
     private float currentBackgroundY = 1;
@@ -17,22 +27,76 @@ public class BuildingSpawner : MonoBehaviour
     private GameObject currentBackground;
     private GameObject previousBackground;
 
-    private GameObject currentBuilding;
-    public float buildingOffset;
-    public GameObject previousBuilding;
+    
+    private Transform previousBuilding;
+
+    private List<Transform> buildings = new List<Transform>();
 
     private void Update()
     {
         if (NewBackgroundNeeded())
         {
-            spawnPosition.y =  currentBackgroundY + BackgroundHeight;
-
-            if (previousBackground != null) Destroy(previousBackground);
-
-            previousBackground = currentBackground;
-            currentBackground = Instantiate(Background, spawnPosition, Quaternion.identity);
-            currentBackgroundY = spawnPosition.y;
+            SpawnBackground();
         }
+
+        if (NewBuildingNeeded())
+        {
+            SpawnBuilding();
+        }
+
+        DeleteBuildings();
+    }
+
+    private void SpawnBackground()
+    {
+        spawnPosition.y = currentBackgroundY + BackgroundHeight;
+
+        if (previousBackground != null) Destroy(previousBackground);
+
+        previousBackground = currentBackground;
+        currentBackground = Instantiate(Background, spawnPosition, Quaternion.identity);
+        currentBackgroundY = spawnPosition.y;
+    }
+
+    private void SpawnBuilding()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            float distance = Random.Range(minDistance, maxDistance);
+            float offset = Random.Range(minOffset, maxOffset);
+
+            previousBuilding = currentBuilding;
+
+            Vector3 pos = new Vector3(offset, previousBuilding.position.y + distance, 0);
+            var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
+            currentBuilding = b.transform;
+            buildings.Add(b.transform);
+        }
+    }
+
+    private void DeleteBuildings()
+    {
+        foreach (Transform b in buildings)
+        {
+            if (b != null)
+            {
+                if (b.position.y + 20 < Camera.position.y)
+                {
+                    Destroy(b.gameObject);
+                }
+            }
+            
+        }
+    }
+
+    bool NewBuildingNeeded()
+    {
+        if (Camera.position.y + 12 > currentBuilding.position.y)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     bool NewBackgroundNeeded()

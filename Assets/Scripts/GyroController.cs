@@ -71,38 +71,6 @@ public class GyroController : MonoBehaviour
         Vector3 rawGyroRotation = gyroScope.attitude.eulerAngles;
         Quaternion gyroRotation = Quaternion.Euler(-gyroScope.attitude.eulerAngles.x, gyroScope.attitude.eulerAngles.z, gyroScope.attitude.eulerAngles.y);
 
-        //---------------------------------------------Quaternion stuff-----------------------------------------------------------
-
-        //new Quaternion(0.5f, 0.5f, -0.5f, 0.5f) * gyroScope.attitude * new Quaternion(1, 0, 0, 0);
-        //new Quaternion(0.0f, 0.5f, 0.5f, 0.0f) *
-
-        //new Quaternion(0, 0.5f, 0.5f, 0) * gyroScope.attitude;GyroRotation.z, rawGyroRotation.z);
-        //new Quaternion(0.5f, 0.5f, -0.5f, 0.5f)
-        //Quaternion.Euler(-rawGyroRotation.x, raw * gyroScope.attitude * new Quaternion(0, 0, 1, 0);
-
-        /*
-        Quaternion eliminationOfYZ = Quaternion.Inverse(
-            Quaternion.FromToRotation(Quaternion.identity * Vector3.right,
-                                      gyroRotation * Vector3.right)
-        );
-        Quaternion rotationX = eliminationOfYZ * gyroRotation;
-
-        Quaternion eliminationOfXY = Quaternion.Inverse(
-            Quaternion.FromToRotation(Quaternion.identity * Vector3.forward,
-                                      gyroRotation * Vector3.forward)
-            );
-        Quaternion rotationZ = eliminationOfXY * gyroRotation;
-        */
-
-        //cube.transform.rotation = Quaternion.Euler(rotationX.eulerAngles.x, 0, -rotationZ.eulerAngles.z);
-
-        //Quaternion rotationX = new Quaternion(-Input.gyro.attitude.x, 0, 0, Input.gyro.attitude.w);
-        //Quaternion rotationZ = new Quaternion(0, 0, -Input.gyro.attitude.y, Input.gyro.attitude.w);
-
-        //cube.transform.rotation = new Quaternion(-Input.gyro.attitude.x, 0, 0, Input.gyro.attitude.w);
-
-        //Debug.Log("rotationRate: " + gyroScope.rotationRateUnbiased);
-
         Debug.Log("rotationrate x: " + gyroScope.rotationRateUnbiased.x);
     }
 
