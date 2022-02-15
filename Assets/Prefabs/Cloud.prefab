@@ -97,6 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpTime: 0.2
   myPos:
-  - {x: 0, y: 4, z: 0}
-  - {x: 10, y: 4, z: 0}
-  treshold: 0
+  - {x: -10, y: 4, z: 0}
+  - {x: 20, y: 4, z: 0}
