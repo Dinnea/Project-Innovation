@@ -15,7 +15,6 @@ public class MoveCloud : MonoBehaviour
     {
         Debug.Log(Screen.width / 2);
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        Debug.Log(screenPos);
         length = myPos.Length;
         myPos[0].y = transform.position.y;
         myPos[1].y = transform.position.y;
@@ -38,6 +37,11 @@ public class MoveCloud : MonoBehaviour
                 Debug.Log("right");
             }
            
+        }
+
+        if(transform.position.x < -5 || transform.position.x > 5)
+        {
+          Destroy(gameObject);
         }
     }
 
