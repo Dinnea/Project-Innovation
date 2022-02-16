@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveHelicopter : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject cam;
     public float speed;
     public float offsetY;
 
@@ -27,6 +27,14 @@ public class MoveHelicopter : MonoBehaviour
             return;
         }
 
+        //HelicopterDoesntLeaveScreen();
+
+
+        transform.Translate(new Vector3(0, 1, 0) * speed);
+    }
+
+    void HelicopterDoesntLeaveScreen()
+    {
         if (hasHelicopterArrived)
         {
             transform.Translate(new Vector3(0, 1, 0) * speed);
@@ -36,20 +44,18 @@ public class MoveHelicopter : MonoBehaviour
         {
             transform.Translate(new Vector3(0, 1, 0) * speed * 5);
 
-            if (transform.position.y > camera.transform.position.y + offsetY)
+            if (transform.position.y > cam.transform.position.y + offsetY)
             {
                 hasHelicopterArrived = true;
             }
         }
-        
-        
     }
 
     void StayInScreen()
     {
-        if (transform.position.y < camera.transform.position.y + offsetY)
+        if (transform.position.y < cam.transform.position.y + offsetY)
         {
-            transform.position = new Vector3(transform.position.x, camera.transform.position.y + offsetY, transform.position.z);
+            transform.position = new Vector3(transform.position.x, cam.transform.position.y + offsetY, transform.position.z);
         }
     }
 }

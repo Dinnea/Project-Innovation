@@ -14,12 +14,12 @@ public class BuildingSpawner : MonoBehaviour
     public float BackgroundHeight;
 
     [Header("Y distance between buildings")]
-    public float maxDistance;
     public float minDistance;
+    public float maxDistance;
 
     [Header("X offset")]
-    public float maxOffset;
     public float minOffset;
+    public float maxOffset;
 
     private Vector3 spawnPosition;
     private float currentBackgroundY = 1;

@@ -11,6 +11,7 @@ public class TwoDGyroController : MonoBehaviour
     public float speedY;
     public float almostZero;
     [SerializeField] float upperClamp = 0.15f;
+    public float arrowScale;
 
     [HideInInspector]
     public float rotationAroundX;
@@ -21,6 +22,8 @@ public class TwoDGyroController : MonoBehaviour
     private Quaternion defaultRotation;
     private bool isEnabled;
     private Animator animator;
+
+    public GameObject arrow;
 
     float t = 0.0f;
     float animLength;
@@ -48,6 +51,11 @@ public class TwoDGyroController : MonoBehaviour
     }
 
     void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
     {
         if (!isEnabled) return;
 
@@ -85,6 +93,10 @@ public class TwoDGyroController : MonoBehaviour
 
         //move character
         character.transform.Translate(moveVector);
+
+        Vector2 f = new Vector2(scaledRotation, rotationAroundY);
+        arrow.transform.localScale = new Vector3(arrow.transform.localScale.y, f.magnitude * arrowScale, 1);
+        arrow.transform.rotation = Quaternion.Euler(arrow.transform.rotation.eulerAngles.x, arrow.transform.rotation.eulerAngles.y, -Vector2.SignedAngle(new Vector2(1, 0), f) * 2);
     }
 
     private void UpdateRotations()
