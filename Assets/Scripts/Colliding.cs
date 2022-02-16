@@ -6,6 +6,15 @@ using System;
 public class Colliding : MonoBehaviour
 {
     bool isSafe;
+    public UnityEvent OnEnterBuilding;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Safe"))
+        {
+            OnEnterBuilding?.Invoke();
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
