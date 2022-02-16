@@ -9,26 +9,24 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] float upperX, lowerX, upperY, lowerY, offsetY;
     [SerializeField]int spawnNtimes = 100;
     GameObject[] clouds;
+    public UnityEvent ThereAreClouds;
+    public UnityEvent NoClouds;
+    [Space]
+    [SerializeField] float searchCountdown = 1f;
+    float search;
+    bool areClouds = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //SpawnManyClouds(spawnNtimes);
+        search = searchCountdown;//SpawnManyClouds(spawnNtimes);
     }
 
     // Update is called once per frame
     void Update()
     {
-        clouds = GameObject.FindGameObjectsWithTag("Cloud");
-        if(clouds.Length == 0)
-        {
-            Debug.Log("no clouds");
-        }
-        else
-        {
-            Debug.Log("yes clouds");
-        }
+        SearchForClouds();
     }
 
     void SpawnCloud()
@@ -41,5 +39,32 @@ public class CloudSpawner : MonoBehaviour
     public void SpawnManyClouds(int number)
     {
         for (int i = 0; i < number; i++) SpawnCloud();
+    }
+
+    void SearchForClouds()
+    {
+        search -= Time.deltaTime;
+        if(search <= 0)
+        {
+            clouds = GameObject.FindGameObjectsWithTag("Cloud");
+            if (clouds.Length == 0)
+            {
+                if (areClouds)
+                {
+                    Debug.Log("no clouds");
+                    NoClouds?.Invoke();
+                    areClouds = false;
+                }
+               
+            }
+            else if(!areClouds)
+            {
+                Debug.Log("yes clouds");
+                areClouds = true;
+                ThereAreClouds?.Invoke();
+            }
+            search = searchCountdown;
+        }
+        
     }
 }

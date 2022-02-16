@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a9b305d2d2a6643b094464056d66b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpTime: 0.2
+  lerpTime: 0.4
   myPos:
   - {x: -7, y: 4, z: 0}
   - {x: 7, y: 4, z: 0}

@@ -13,8 +13,7 @@ public class MoveCloud : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(Screen.width / 2);
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+       // Debug.Log(Screen.width / 2);
         length = myPos.Length;
         myPos[0].y = transform.position.y;
         myPos[1].y = transform.position.y;
@@ -28,13 +27,13 @@ public class MoveCloud : MonoBehaviour
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
             if (screenPos.x < Screen.width / 2)
             {
-                Debug.Log("left");
+               // Debug.Log("left");
                 MovingClouds(0);
             }
             else if (screenPos.x > Screen.width / 2)
             {
                 MovingClouds(1);
-                Debug.Log("right");
+               // Debug.Log("right");
             }
            
         }
