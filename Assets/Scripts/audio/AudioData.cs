@@ -197,7 +197,7 @@ public class AudioData : MonoBehaviour
     public void StartMic(int seconds)
     {
         audioSource.clip = Microphone.Start(selectedDevice, false, seconds, AudioSettings.outputSampleRate);
-        CallAfterDelay.Create(0.5f,
+        CallAfterDelay.Create(0.25f,
             () => {
                 audioSource.Play();
             }

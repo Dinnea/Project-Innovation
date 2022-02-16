@@ -13,9 +13,7 @@ public class MoveCloud : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(Screen.width / 2);
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        Debug.Log(screenPos);
+       // Debug.Log(Screen.width / 2);
         length = myPos.Length;
         myPos[0].y = transform.position.y;
         myPos[1].y = transform.position.y;
@@ -29,20 +27,26 @@ public class MoveCloud : MonoBehaviour
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
             if (screenPos.x < Screen.width / 2)
             {
-                Debug.Log("left");
+               // Debug.Log("left");
                 MovingClouds(0);
             }
             else if (screenPos.x > Screen.width / 2)
             {
                 MovingClouds(1);
-                Debug.Log("right");
+               // Debug.Log("right");
             }
            
+        }
+
+        if(transform.position.x < -5 || transform.position.x > 5)
+        {
+          Destroy(gameObject);
         }
     }
 
     void MovingClouds(int posIndex)
     {
+        lerpTime = AudioData.amplitude;
         transform.position = Vector3.Lerp(transform.position, myPos[posIndex], lerpTime * Time.deltaTime);
 
         t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
