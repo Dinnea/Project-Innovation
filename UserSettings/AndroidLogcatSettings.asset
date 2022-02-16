@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "R58M54DNQFP",
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
-        "name": "com.DefaultCompany.Myproject",
-        "processId": 22326,
+        "name": "com.TeamBased.clouds",
+        "processId": 24622,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,48 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.DefaultCompany.Myproject",
             "processId": 22326,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 19165,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 20698,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 22089,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 22558,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 23057,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 23644,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 24622,
             "exited": false
         }
     ],
