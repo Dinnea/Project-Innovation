@@ -208,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -221,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1324573117}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -244,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: 
+      value: StartMic
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -272,7 +272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
+      value: AudioData, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
+      propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -292,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983470, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: m_RootOrder
@@ -1504,7 +1508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168235454376581549, guid: 2e66cee1416499a489632ab3d19805ab, type: 3}
       propertyPath: setTreshold
-      value: 0.408
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e66cee1416499a489632ab3d19805ab, type: 3}
