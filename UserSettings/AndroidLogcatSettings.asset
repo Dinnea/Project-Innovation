@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
         "name": "com.TeamBased.clouds",
-        "processId": 24622,
+        "processId": 26118,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -96,6 +96,18 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.TeamBased.clouds",
             "processId": 24622,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 25173,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.clouds",
+            "processId": 26118,
             "exited": false
         }
     ],
