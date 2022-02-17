@@ -21,8 +21,8 @@ public class MoveCloud : MonoBehaviour
 
     private void Update()
     {
-
-        if(AudioData.amplitude > AudioData.treshold)
+        lerpTime = AudioData.amplitude;
+        if (AudioData.amplitude > AudioData.treshold)
         {
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
             if (screenPos.x < Screen.width / 2)
@@ -46,7 +46,6 @@ public class MoveCloud : MonoBehaviour
 
     void MovingClouds(int posIndex)
     {
-        lerpTime = AudioData.amplitude;
         transform.position = Vector3.Lerp(transform.position, myPos[posIndex], lerpTime * Time.deltaTime);
 
         t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
