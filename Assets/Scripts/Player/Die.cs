@@ -8,7 +8,7 @@ public class Die : MonoBehaviour
 {
     Bounce bounce;
     Colliding colliding;
-    [SerializeField]Canvas ui;
+    [SerializeField]GameObject ui;
     public UnityEvent onFall;
 
 
@@ -32,7 +32,7 @@ public class Die : MonoBehaviour
     public void ExecuteDie()
     {
        
-        ui.gameObject.SetActive(true);
+        ui.SetActive(true);
         Destroy(gameObject);
     }
 }
