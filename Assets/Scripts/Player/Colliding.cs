@@ -8,6 +8,8 @@ public class Colliding : MonoBehaviour
     bool isSafe;
     public UnityEvent OnEnterBuilding;
     public UnityEvent OnHitEnemy;
+    public UnityEvent OnHitCollectible;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Safe"))

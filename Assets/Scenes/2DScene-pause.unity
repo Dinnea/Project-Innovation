@@ -1264,14 +1264,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
+  CarPrefab: {fileID: 4851724540253419553, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+  DronePrefab: {fileID: 734620745506437852, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}
   Background: {fileID: 8409318097134948881, guid: 2901898ca491ff94abe502323b5634e9, type: 3}
   Camera: {fileID: 9779027}
-  currentBuilding: {fileID: 557492421}
+  currentPlatform: {fileID: 557492421}
   BackgroundHeight: 23
+  CarBuildingDistance: 5
   minDistance: 7.5
   maxDistance: 12
   minOffset: -5
   maxOffset: 5
+  droneDistance: 5
+  carChance: 0.3
+  droneChance: 0.4
 --- !u!4 &1450494420
 Transform:
   m_ObjectHideFlags: 0
@@ -1300,6 +1306,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1619458281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 859545199102504585, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+  m_PrefabInstance: {fileID: 4897982258532673552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619458277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e41f601cb586640abd12de61728d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &1619458284 stripped
@@ -1819,6 +1836,34 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1032370991}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1619458281}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CollectCollectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Collect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
 --- !u!1001 &6755131846267217426

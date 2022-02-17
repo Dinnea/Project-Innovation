@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 4897982258004594940}
   - component: {fileID: 4897982258004594939}
   - component: {fileID: 4937669986401113953}
+  - component: {fileID: 859545199102504585}
   - component: {fileID: 5265680101895711029}
   - component: {fileID: 5044614298013364580}
   - component: {fileID: 686927408585150086}
@@ -488,6 +489,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &859545199102504585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897982258004594933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e41f601cb586640abd12de61728d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
 --- !u!114 &5265680101895711029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +621,7 @@ MonoBehaviour:
   rotationAroundX: 0
   rotationAroundY: 0
   arrow: {fileID: 3696020587652616064}
+  isMoving: 1
 --- !u!1 &4897982258568143827
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +715,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHitCollectible:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &1740979670372523778
 Rigidbody2D:
   serializedVersion: 4
