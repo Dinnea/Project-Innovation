@@ -14,6 +14,12 @@ public class Colliding : MonoBehaviour
         {
             OnEnterBuilding?.Invoke();
         }
+
+        if (other.CompareTag("Collectible"))
+        {
+            OnHitCollectible?.Invoke();
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)

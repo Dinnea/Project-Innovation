@@ -6,20 +6,32 @@ public class BuildingSpawner : MonoBehaviour
 {
     [Header("Objects needed")]
     public GameObject BuildingPrefab;
+    public GameObject CarPrefab;
+    public GameObject DronePrefab;
     public GameObject Background;
     public Transform Camera;
-    public Transform currentBuilding;
+    public Transform currentPlatform;
 
     [Header(" ")]
     public float BackgroundHeight;
+    public float CarBuildingDistance;
 
     [Header("Y distance between buildings")]
     public float minDistance;
     public float maxDistance;
 
-    [Header("X offset")]
+    [Header("X offset buildings")]
     public float minOffset;
     public float maxOffset;
+
+    [Header("Drone distance")]
+    public float droneDistance;
+
+    [Header("Spawn chance")]
+    [Range(0.0f, 1.0f)]
+    public float carChance;
+    [Range(0.0f, 1.0f)]
+    public float droneChance;
 
     private Vector3 spawnPosition;
     private float currentBackgroundY = 1;
@@ -27,10 +39,12 @@ public class BuildingSpawner : MonoBehaviour
     private GameObject currentBackground;
     private GameObject previousBackground;
 
-    
-    private Transform previousBuilding;
+    private bool lastPlatformIsCar;
+    private bool lastPlatformIsDrone;
 
-    private List<Transform> buildings = new List<Transform>();
+    private Transform previousPlatform;
+
+    private List<Transform> platforms = new List<Transform>();
 
     private void Update()
     {
@@ -39,12 +53,23 @@ public class BuildingSpawner : MonoBehaviour
             SpawnBackground();
         }
 
-        if (NewBuildingNeeded())
+        if (NewPlatformNeeded())
         {
             SpawnBuilding();
+
+            float chance = Random.Range(0.0f, 1.0f);
+
+            if (carChance > chance)
+            {
+                SpawnCar();
+            }
+            else if (droneChance > chance)
+            {
+                SpawnDrone();
+            }
         }
 
-        DeleteBuildings();
+        DeletePlatforms();
     }
 
     private void SpawnBackground()
@@ -60,38 +85,77 @@ public class BuildingSpawner : MonoBehaviour
 
     private void SpawnBuilding()
     {
-        for (int i = 0; i < 1; i++)
+        float distance;
+
+        if (lastPlatformIsCar)
         {
-            float distance = Random.Range(minDistance, maxDistance);
-            float offset = Random.Range(minOffset, maxOffset);
-
-            previousBuilding = currentBuilding;
-
-            Vector3 pos = new Vector3(offset, previousBuilding.position.y + distance, 0);
-            var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
-            currentBuilding = b.transform;
-            buildings.Add(b.transform);
+            //building after car should be close to car
+            distance = CarBuildingDistance;
+            lastPlatformIsCar = false;
         }
+        else if (lastPlatformIsDrone)
+        {
+            distance = droneDistance;
+            lastPlatformIsDrone = false;
+        }
+        else distance = Random.Range(minDistance, maxDistance);
+
+        float offset = Random.Range(minOffset, maxOffset);
+
+        previousPlatform = currentPlatform;
+
+        Vector3 pos = new Vector3(offset, previousPlatform.position.y + distance, 0);
+        var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
+        currentPlatform = b.transform;
+        platforms.Add(b.transform);
     }
 
-    private void DeleteBuildings()
+    private void SpawnCar()
     {
-        foreach (Transform b in buildings)
+        float distance = Random.Range(minDistance, maxDistance);
+
+        previousPlatform = currentPlatform;
+
+        Vector3 pos = new Vector3(0, previousPlatform.position.y + distance, 0);
+        var b = Instantiate(CarPrefab, pos, Quaternion.identity);
+        currentPlatform = b.transform;
+        platforms.Add(b.transform);
+
+        lastPlatformIsCar = true;
+    }
+
+    private void SpawnDrone()
+    {
+        float distance = droneDistance;
+
+        previousPlatform = currentPlatform;
+
+        Vector3 pos = new Vector3(Random.Range(-4.0f, 4.0f), previousPlatform.position.y + distance, 0);
+        var d = Instantiate(DronePrefab, pos, Quaternion.identity);
+        currentPlatform = d.transform;
+        platforms.Add(d.transform);
+
+        lastPlatformIsDrone = true;
+    }
+
+    private void DeletePlatforms()
+    {
+        foreach (Transform p in platforms)
         {
-            if (b != null)
+            if (p != null)
             {
-                if (b.position.y + 20 < Camera.position.y)
+                if (p.position.y + 20 < Camera.position.y)
                 {
-                    Destroy(b.gameObject);
+                    Destroy(p.gameObject);
                 }
             }
-            
+
         }
     }
 
-    bool NewBuildingNeeded()
+    bool NewPlatformNeeded()
     {
-        if (Camera.position.y + 12 > currentBuilding.position.y)
+        if (Camera.position.y + 12 > currentPlatform.position.y)
         {
             return true;
         }
