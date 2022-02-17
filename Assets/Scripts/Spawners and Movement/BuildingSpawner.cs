@@ -6,12 +6,14 @@ public class BuildingSpawner : MonoBehaviour
 {
     [Header("Objects needed")]
     public GameObject BuildingPrefab;
+    public GameObject CarPrefab;
     public GameObject Background;
     public Transform Camera;
     public Transform currentBuilding;
 
     [Header(" ")]
     public float BackgroundHeight;
+    public float CarBuildingDistance;
 
     [Header("Y distance between buildings")]
     public float minDistance;
@@ -21,16 +23,28 @@ public class BuildingSpawner : MonoBehaviour
     public float minOffset;
     public float maxOffset;
 
+    [Header("Buildings between cars")]
+    public int minAmount;
+    public int maxAmount;
+
     private Vector3 spawnPosition;
     private float currentBackgroundY = 1;
+    
+    private int buildingsBetweenCars;
+    private int buildingsSpawned;
 
     private GameObject currentBackground;
     private GameObject previousBackground;
 
-    
+
     private Transform previousBuilding;
 
     private List<Transform> buildings = new List<Transform>();
+
+    private void Start()
+    {
+        buildingsBetweenCars = Random.Range(minAmount, maxAmount + 1);
+    }
 
     private void Update()
     {
@@ -41,7 +55,15 @@ public class BuildingSpawner : MonoBehaviour
 
         if (NewBuildingNeeded())
         {
-            SpawnBuilding();
+            if (buildingsSpawned < buildingsBetweenCars)
+            {
+                SpawnBuilding();
+            }
+            else
+            {
+                SpawnCar();
+                buildingsSpawned = 0;
+            }
         }
 
         DeleteBuildings();
@@ -60,18 +82,37 @@ public class BuildingSpawner : MonoBehaviour
 
     private void SpawnBuilding()
     {
-        for (int i = 0; i < 1; i++)
+        float distance;
+
+        if (buildingsSpawned == 0)
         {
-            float distance = Random.Range(minDistance, maxDistance);
-            float offset = Random.Range(minOffset, maxOffset);
-
-            previousBuilding = currentBuilding;
-
-            Vector3 pos = new Vector3(offset, previousBuilding.position.y + distance, 0);
-            var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
-            currentBuilding = b.transform;
-            buildings.Add(b.transform);
+            //building after car should be close to car
+            distance = CarBuildingDistance;
         }
+        else distance = Random.Range(minDistance, maxDistance);
+
+        float offset = Random.Range(minOffset, maxOffset);
+
+        previousBuilding = currentBuilding;
+
+        Vector3 pos = new Vector3(offset, previousBuilding.position.y + distance, 0);
+        var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
+        currentBuilding = b.transform;
+        buildings.Add(b.transform);
+
+        buildingsSpawned++;
+    }
+
+    private void SpawnCar()
+    {
+        float distance = Random.Range(minDistance, maxDistance);
+
+        previousBuilding = currentBuilding;
+
+        Vector3 pos = new Vector3(0, previousBuilding.position.y + distance, 0);
+        var b = Instantiate(CarPrefab, pos, Quaternion.identity);
+        currentBuilding = b.transform;
+        buildings.Add(b.transform);
     }
 
     private void DeleteBuildings()
@@ -85,7 +126,7 @@ public class BuildingSpawner : MonoBehaviour
                     Destroy(b.gameObject);
                 }
             }
-            
+
         }
     }
 

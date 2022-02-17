@@ -1010,6 +1010,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5161853169044958528, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5161853169044958529, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1079,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &748458751
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1886,14 +1890,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
+  CarPrefab: {fileID: 4851724540253419553, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
   Background: {fileID: 8409318097134948881, guid: 2901898ca491ff94abe502323b5634e9, type: 3}
   Camera: {fileID: 9779027}
   currentBuilding: {fileID: 557492421}
   BackgroundHeight: 23
+  CarBuildingDistance: 4
   minDistance: 7.5
-  maxDistance: 12
+  maxDistance: 11
   minOffset: -5
   maxOffset: 5
+  minAmount: 2
+  maxAmount: 5
 --- !u!4 &1450494420
 Transform:
   m_ObjectHideFlags: 0
@@ -1919,7 +1927,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 
@@ -2299,6 +2307,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077093582}
   m_CullTransparentMesh: 1
+--- !u!1001 &4851724542173585865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419552, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419553, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_Name
+      value: CableCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107221692629018546, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
 --- !u!1001 &4897982258532673552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2384,7 +2453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4575042084824982633, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4897982258004594935, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Size.x
@@ -2486,6 +2555,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4897982258004594941, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4897982258568143827, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Name
       value: player
@@ -2536,7 +2609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4937669986401113953, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4937669986401113953, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: MinDistance
@@ -2552,7 +2625,7 @@ PrefabInstance:
       objectReference: {fileID: 1085133886}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.size
