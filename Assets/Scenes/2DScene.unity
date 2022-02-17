@@ -1800,6 +1800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
   CarPrefab: {fileID: 4851724540253419553, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+  DronePrefab: {fileID: 734620745506437852, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}
   Background: {fileID: 8409318097134948881, guid: 2901898ca491ff94abe502323b5634e9, type: 3}
   Camera: {fileID: 9779027}
   currentPlatform: {fileID: 557492421}
@@ -1809,8 +1810,9 @@ MonoBehaviour:
   maxDistance: 11
   minOffset: -5
   maxOffset: 5
-  minAmount: 2
-  maxAmount: 5
+  droneDistance: 3
+  carChance: 0
+  droneChance: 1
 --- !u!4 &1450494420
 Transform:
   m_ObjectHideFlags: 0

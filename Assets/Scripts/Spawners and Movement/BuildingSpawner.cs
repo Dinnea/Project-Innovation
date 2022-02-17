@@ -7,6 +7,7 @@ public class BuildingSpawner : MonoBehaviour
     [Header("Objects needed")]
     public GameObject BuildingPrefab;
     public GameObject CarPrefab;
+    public GameObject DronePrefab;
     public GameObject Background;
     public Transform Camera;
     public Transform currentPlatform;
@@ -19,32 +20,31 @@ public class BuildingSpawner : MonoBehaviour
     public float minDistance;
     public float maxDistance;
 
-    [Header("X offset")]
+    [Header("X offset buildings")]
     public float minOffset;
     public float maxOffset;
 
-    [Header("Buildings between cars")]
-    public int minAmount;
-    public int maxAmount;
+    [Header("Drone distance")]
+    public float droneDistance;
+
+    [Header("Spawn chance")]
+    [Range(0.0f, 1.0f)]
+    public float carChance;
+    [Range(0.0f, 1.0f)]
+    public float droneChance;
 
     private Vector3 spawnPosition;
     private float currentBackgroundY = 1;
-    
-    private int buildingsBetweenCars;
-    private int buildingsSpawned;
 
     private GameObject currentBackground;
     private GameObject previousBackground;
 
+    private bool lastPlatformIsCar;
+    private bool lastPlatformIsDrone;
 
     private Transform previousPlatform;
 
     private List<Transform> platforms = new List<Transform>();
-
-    private void Start()
-    {
-        buildingsBetweenCars = Random.Range(minAmount, maxAmount + 1);
-    }
 
     private void Update()
     {
@@ -55,14 +55,17 @@ public class BuildingSpawner : MonoBehaviour
 
         if (NewPlatformNeeded())
         {
-            if (buildingsSpawned < buildingsBetweenCars)
-            {
-                SpawnBuilding();
-            }
-            else
+            SpawnBuilding();
+
+            float chance = Random.Range(0.0f, 1.0f);
+
+            if (carChance > chance)
             {
                 SpawnCar();
-                buildingsSpawned = 0;
+            }
+            else if (droneChance > chance)
+            {
+                SpawnDrone();
             }
         }
 
@@ -84,10 +87,16 @@ public class BuildingSpawner : MonoBehaviour
     {
         float distance;
 
-        if (buildingsSpawned == 0)
+        if (lastPlatformIsCar)
         {
             //building after car should be close to car
             distance = CarBuildingDistance;
+            lastPlatformIsCar = false;
+        }
+        else if (lastPlatformIsDrone)
+        {
+            distance = droneDistance;
+            lastPlatformIsDrone = false;
         }
         else distance = Random.Range(minDistance, maxDistance);
 
@@ -99,8 +108,6 @@ public class BuildingSpawner : MonoBehaviour
         var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
         currentPlatform = b.transform;
         platforms.Add(b.transform);
-
-        buildingsSpawned++;
     }
 
     private void SpawnCar()
@@ -113,6 +120,22 @@ public class BuildingSpawner : MonoBehaviour
         var b = Instantiate(CarPrefab, pos, Quaternion.identity);
         currentPlatform = b.transform;
         platforms.Add(b.transform);
+
+        lastPlatformIsCar = true;
+    }
+
+    private void SpawnDrone()
+    {
+        float distance = droneDistance;
+
+        previousPlatform = currentPlatform;
+
+        Vector3 pos = new Vector3(Random.Range(-4.0f, 4.0f), previousPlatform.position.y + distance, 0);
+        var d = Instantiate(DronePrefab, pos, Quaternion.identity);
+        currentPlatform = d.transform;
+        platforms.Add(d.transform);
+
+        lastPlatformIsDrone = true;
     }
 
     private void DeletePlatforms()
