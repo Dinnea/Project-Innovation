@@ -7,7 +7,7 @@ public class Colliding : MonoBehaviour
 {
     bool isSafe;
     public UnityEvent OnEnterBuilding;
-
+    public UnityEvent OnHitEnemy;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Safe"))
@@ -21,6 +21,11 @@ public class Colliding : MonoBehaviour
         if (other.CompareTag("Safe"))
         {
             isSafe = true;
+        }
+        else if(other.CompareTag("Enemy"))
+        {
+            Debug.Log("u a ded bih");
+            OnHitEnemy?.Invoke();
         }
     }
 
@@ -41,4 +46,5 @@ public class Colliding : MonoBehaviour
     {
         isSafe = value;
     }
+
 }

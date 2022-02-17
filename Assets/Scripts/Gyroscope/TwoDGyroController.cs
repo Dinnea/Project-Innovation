@@ -25,6 +25,8 @@ public class TwoDGyroController : MonoBehaviour
 
     public GameObject arrow;
 
+    public bool isMoving = true;
+
     float t = 0.0f;
     float animLength;
 
@@ -61,9 +63,12 @@ public class TwoDGyroController : MonoBehaviour
 
         if (character != null)
         {
-            if (!bounce.GetIsGrounded())
+            if (isMoving)
             {
-                MoveXY_UsingRotationRate();
+                if (!bounce.GetIsGrounded())
+                {
+                    MoveXY_UsingRotationRate();
+                }
             }
         }
 

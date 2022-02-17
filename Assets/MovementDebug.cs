@@ -9,7 +9,7 @@ public class MovementDebug : MonoBehaviour
 
     public void EnableMove(bool value)
     {
-        movementPC.enabled = value;
-        gyroController.enabled = value;
+        if (movementPC!= null) movementPC.enabled = value;
+        if(gyroController!=null) gyroController.isMoving= value;
     }
 }
