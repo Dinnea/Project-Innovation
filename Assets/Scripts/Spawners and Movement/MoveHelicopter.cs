@@ -58,4 +58,9 @@ public class MoveHelicopter : MonoBehaviour
             transform.position = new Vector3(transform.position.x, cam.transform.position.y + offsetY, transform.position.z);
         }
     }
+
+    public void ChangeSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
 }
