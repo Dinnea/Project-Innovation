@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectiblePrefab: {fileID: 8435997920356420018, guid: a617b582d14ce69479cd11865145f3a5, type: 3}
+  DronePrefab: {fileID: 734620745506437852, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}

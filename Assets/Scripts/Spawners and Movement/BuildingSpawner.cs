@@ -9,7 +9,7 @@ public class BuildingSpawner : MonoBehaviour
     public GameObject CarPrefab;
     public GameObject Background;
     public Transform Camera;
-    public Transform currentBuilding;
+    public Transform currentPlatform;
 
     [Header(" ")]
     public float BackgroundHeight;
@@ -37,9 +37,9 @@ public class BuildingSpawner : MonoBehaviour
     private GameObject previousBackground;
 
 
-    private Transform previousBuilding;
+    private Transform previousPlatform;
 
-    private List<Transform> buildings = new List<Transform>();
+    private List<Transform> platforms = new List<Transform>();
 
     private void Start()
     {
@@ -53,7 +53,7 @@ public class BuildingSpawner : MonoBehaviour
             SpawnBackground();
         }
 
-        if (NewBuildingNeeded())
+        if (NewPlatformNeeded())
         {
             if (buildingsSpawned < buildingsBetweenCars)
             {
@@ -66,7 +66,7 @@ public class BuildingSpawner : MonoBehaviour
             }
         }
 
-        DeleteBuildings();
+        DeletePlatforms();
     }
 
     private void SpawnBackground()
@@ -93,12 +93,12 @@ public class BuildingSpawner : MonoBehaviour
 
         float offset = Random.Range(minOffset, maxOffset);
 
-        previousBuilding = currentBuilding;
+        previousPlatform = currentPlatform;
 
-        Vector3 pos = new Vector3(offset, previousBuilding.position.y + distance, 0);
+        Vector3 pos = new Vector3(offset, previousPlatform.position.y + distance, 0);
         var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
-        currentBuilding = b.transform;
-        buildings.Add(b.transform);
+        currentPlatform = b.transform;
+        platforms.Add(b.transform);
 
         buildingsSpawned++;
     }
@@ -107,32 +107,32 @@ public class BuildingSpawner : MonoBehaviour
     {
         float distance = Random.Range(minDistance, maxDistance);
 
-        previousBuilding = currentBuilding;
+        previousPlatform = currentPlatform;
 
-        Vector3 pos = new Vector3(0, previousBuilding.position.y + distance, 0);
+        Vector3 pos = new Vector3(0, previousPlatform.position.y + distance, 0);
         var b = Instantiate(CarPrefab, pos, Quaternion.identity);
-        currentBuilding = b.transform;
-        buildings.Add(b.transform);
+        currentPlatform = b.transform;
+        platforms.Add(b.transform);
     }
 
-    private void DeleteBuildings()
+    private void DeletePlatforms()
     {
-        foreach (Transform b in buildings)
+        foreach (Transform p in platforms)
         {
-            if (b != null)
+            if (p != null)
             {
-                if (b.position.y + 20 < Camera.position.y)
+                if (p.position.y + 20 < Camera.position.y)
                 {
-                    Destroy(b.gameObject);
+                    Destroy(p.gameObject);
                 }
             }
 
         }
     }
 
-    bool NewBuildingNeeded()
+    bool NewPlatformNeeded()
     {
-        if (Camera.position.y + 12 > currentBuilding.position.y)
+        if (Camera.position.y + 12 > currentPlatform.position.y)
         {
             return true;
         }

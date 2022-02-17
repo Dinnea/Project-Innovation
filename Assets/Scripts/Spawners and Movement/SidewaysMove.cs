@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SidewaysMove : MonoBehaviour
 {
-    [SerializeField] private Vector3 pos1 = new Vector3(-4, 0.1f, 0);
-    [SerializeField] private Vector3 pos2 = new Vector3(4, 0.1f, 0);
+    [SerializeField] private float Xpos1;
+    [SerializeField] private float Xpos2;
     [SerializeField] private Vector3 fineTuneTurn = new Vector3(0.1f, 0, 0);
     [SerializeField] private float time;
     Rigidbody2D rb;
     void MoveBody(Rigidbody2D body, Vector3 from, Vector3 to, float time)
     {
         body.MovePosition(Vector3.Lerp(from, to, time));
-        if (transform.position.x <= pos1.x)
+        if (transform.position.x <= Xpos1)
         {
             spriteRenderer.flipY = true;
         }
-        if (transform.position.x >= pos2.x) spriteRenderer.flipY = false;
+        if (transform.position.x >= Xpos2) spriteRenderer.flipY = false;
     }
 
    
@@ -27,20 +27,25 @@ public class SidewaysMove : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     void Update()
     {
-        MoveBody(rb, pos2 + fineTuneTurn, pos1- fineTuneTurn, Mathf.PingPong(Time.time * speed, 1.0f));
+        Vector3 pos1 = new Vector3(Xpos1, transform.position.y);
+        Vector3 pos2 = new Vector3(Xpos2, transform.position.y);
+        MoveBody(rb, pos2 + fineTuneTurn, pos1 - fineTuneTurn, Mathf.PingPong(Time.time * speed, 1.0f));
     }
 
     void transformPosition()
     {
-        transform.position = Vector3.Lerp(pos1, pos2, Mathf.PingPong(Time.time * speed, 1.0f));
-        if (transform.position == pos1)
+        Debug.Log("Is this used anywhere?");
+        /*
+        transform.position = Vector3.Lerp(Xpos1, Xpos2, Mathf.PingPong(Time.time * speed, 1.0f));
+        if (transform.position == Xpos1)
         {
             spriteRenderer.flipY = true;
         }
-        if (transform.position == pos2) spriteRenderer.flipY = false;
+        if (transform.position == Xpos2) spriteRenderer.flipY = false;
+        */
     }
 }
