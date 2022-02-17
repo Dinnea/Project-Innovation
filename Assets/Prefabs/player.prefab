@@ -404,7 +404,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 19b91ae6a7454d542ad90c45b4b2143e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f2eb5e2128835a54e8df950dad6cb143, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -414,7 +414,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.2355545
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -544,7 +544,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHitEnemy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5265680101895711029}
+        m_TargetAssemblyTypeName: Die, Assembly-CSharp
+        m_MethodName: ExecuteDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &686927408585150086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,10 +645,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   speedX: 0.25
-  speedY: 0.1
+  speedY: 0.3
   almostZero: 0.0001
   upperClamp: 0.15
-  arrowScale: 0
+  arrowScale: 1
   rotationAroundX: 0
   rotationAroundY: 0
   arrow: {fileID: 3696020587652616064}
@@ -654,6 +666,7 @@ GameObject:
   - component: {fileID: 1740979670372523778}
   - component: {fileID: 8654848096324050621}
   - component: {fileID: 6718437973939433089}
+  - component: {fileID: 5312843183499633373}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -704,7 +717,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnEnterBuilding:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6718437973939433089}
+        m_TargetAssemblyTypeName: Points, Assembly-CSharp
+        m_MethodName: AddPoints
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 100
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &1740979670372523778
 Rigidbody2D:
   serializedVersion: 4
@@ -766,8 +791,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnPointsGathered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5606842561353735553}
+        m_TargetAssemblyTypeName: CloudSpawner, Assembly-CSharp
+        m_MethodName: SpawnManyClouds
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
+          m_FloatArgument: 100
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   text: {fileID: 0}
+--- !u!114 &5312843183499633373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897982258568143827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31012fa0feb10e9488c76cb5c873f747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementPC: {fileID: 7327038933395967099}
+  gyroController: {fileID: 2286572164615125554}
 --- !u!1001 &1450839865430153640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -805,11 +856,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -822,7 +873,7 @@ PrefabInstance:
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7327038933395967099}
+      objectReference: {fileID: 5312843183499633373}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -837,7 +888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_enabled
+      value: EnableMove
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -849,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -858,11 +909,11 @@ PrefabInstance:
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7327038933395967099}
+      objectReference: {fileID: 5312843183499633373}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2286572164615125554}
+      objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -881,11 +932,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_enabled
+      value: EnableMove
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
+      value: StartMic
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -893,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
+      value: MovementDebug, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -909,15 +960,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
+      value: MovementDebug, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
+      value: AudioData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: AudioData, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
+      propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
@@ -994,3 +1049,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6480093488442983470, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
   m_PrefabInstance: {fileID: 1450839865430153640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5606842561353735553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6480093488442983465, guid: ca921e2a7ff59d3459d1b4c340e0e728, type: 3}
+  m_PrefabInstance: {fileID: 1450839865430153640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8070fec7a8efd134e865b5026d1b37f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
