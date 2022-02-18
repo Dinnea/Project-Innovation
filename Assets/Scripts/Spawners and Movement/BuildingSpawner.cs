@@ -34,7 +34,7 @@ public class BuildingSpawner : MonoBehaviour
     public float droneChance;
 
     private Vector3 spawnPosition;
-    private float currentBackgroundY = 1;
+    private float currentBackgroundY = 0;
 
     private GameObject currentBackground;
     private GameObject previousBackground;
