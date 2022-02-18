@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] GameObject playButton;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject settingsMenu;
+    [SerializeField] GameObject countdown;
     public void PauseGame()
     {
         Time.timeScale = 0;
@@ -12,7 +17,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
-        Time.timeScale = 1;
+        playButton.SetActive(false);
+        pauseButton.SetActive(true);
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        countdown.SetActive(true);
     }
     
     public void ExitGameScene()
