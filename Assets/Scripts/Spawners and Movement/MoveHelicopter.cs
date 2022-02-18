@@ -30,7 +30,7 @@ public class MoveHelicopter : MonoBehaviour
         //HelicopterDoesntLeaveScreen();
 
 
-        transform.Translate(new Vector3(0, 1, 0) * speed);
+        transform.Translate(new Vector3(0, 1, 0) * speed*Time.deltaTime);
     }
 
     void HelicopterDoesntLeaveScreen()

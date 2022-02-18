@@ -15,6 +15,6 @@ public class HelicopterDistance : MonoBehaviour
     {
         if (Player == null) return;
         distance = Player.position.y - Helicopter.position.y;
-        DistanceText.text = distance.ToString();
+       // DistanceText.text = distance.ToString();
     }
 }

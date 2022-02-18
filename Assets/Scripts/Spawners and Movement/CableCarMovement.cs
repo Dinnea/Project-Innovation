@@ -10,7 +10,7 @@ public class CableCarMovement : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(new Vector3(Speed, 0, 0));
+        transform.Translate(new Vector3(Speed, 0, 0)*Time.deltaTime);
 
         if (transform.position.x < Xpos1)
         {

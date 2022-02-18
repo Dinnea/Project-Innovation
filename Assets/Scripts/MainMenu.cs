@@ -20,15 +20,5 @@ public class MainMenu : MonoBehaviour
     {
         effectsMixer.SetFloat("Effects", volume);
     }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Scenes/new", LoadSceneMode.Single); 
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
 }
 

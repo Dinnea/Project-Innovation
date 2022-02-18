@@ -15,15 +15,18 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/audio visualisation.unity
+    path: Assets/Scenes/misc/audio visualisation.unity
     guid: b85fc2f63351c724184c4fb7021403c2
   - enabled: 0
     path: Assets/Scenes/2DScene-pause.unity
     guid: 1ac4dab800e57b84aabf793d9ab625fa
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 8a070952d3a3d7c40a1da6564864e5fd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/new.unity
     guid: d9884aac4deb3cf4096f2991bbdb1190
+  - enabled: 1
+    path: Assets/Scenes/2DScene.unity
+    guid: 0957ecc9354f9124c8545f1a42aa8eef
   m_configObjects: {}
