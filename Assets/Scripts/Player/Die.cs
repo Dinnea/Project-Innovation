@@ -8,6 +8,7 @@ public class Die : MonoBehaviour
 {
     Bounce bounce;
     Colliding colliding;
+    [SerializeField]AudioSource death;
     [SerializeField]GameObject ui;
     public UnityEvent onFall;
 
@@ -17,7 +18,6 @@ public class Die : MonoBehaviour
         bounce = GetComponent<Bounce>();
         colliding = GetComponentInParent<Colliding>();
         colliding.SetIsSafe(true);
-
     }
 
     private void Update()
@@ -30,9 +30,13 @@ public class Die : MonoBehaviour
     }
 
     public void ExecuteDie()
-    {
-       
+    {       
         ui.SetActive(true);
         Destroy(gameObject);
+    }
+
+    public void PlayDeathEffect()
+    {
+        death.Play();
     }
 }
