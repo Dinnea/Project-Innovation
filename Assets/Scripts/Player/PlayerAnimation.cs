@@ -15,5 +15,8 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("hasDied", true);
     }
 
-
+    public void OnHitEnemy()
+    {
+        animator.SetBool("gotHit", true);
+    }
 }

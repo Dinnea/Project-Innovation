@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 13, y: 46.2}
+  m_SizeDelta: {x: 13, y: 23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8409318096475955054
 Canvas:
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8409318097134948887}
   m_Layer: 0
-  m_Name: Background
+  m_Name: OldBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,10 +163,10 @@ RectTransform:
   m_Father: {fileID: 8409318096475955051}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 13, y: 46.2}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8409318097310964556
 CanvasRenderer:
@@ -196,9 +196,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d7295f141d6661409bfb510ed12ce18, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e557b44fd3b5051429f7ba2f6aed055c, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
