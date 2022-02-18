@@ -41,21 +41,21 @@ AnimationClip:
       value: {fileID: 21300000, guid: 9cb32ed00babe2d42bb6965dedd44b62, type: 3}
     - time: 0.16666667
       value: {fileID: 21300000, guid: 0a9ab207a5bfe8b40905dc7bc8bbce8a, type: 3}
-    - time: 0.18333334
-      value: {fileID: 21300000, guid: 943fcbcca75186543b7b9b618288fe2f, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: 832bf681f316a2e498e3228102b05ce8, type: 3}
+      value: {fileID: 21300000, guid: 943fcbcca75186543b7b9b618288fe2f, type: 3}
     - time: 0.21666667
-      value: {fileID: 21300000, guid: eee91fd4052a3784f9910f04569d579d, type: 3}
+      value: {fileID: 21300000, guid: 832bf681f316a2e498e3228102b05ce8, type: 3}
     - time: 0.23333333
-      value: {fileID: 21300000, guid: 78f74eaf410d1404bb27949fc64c28e2, type: 3}
+      value: {fileID: 21300000, guid: eee91fd4052a3784f9910f04569d579d, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 36293216648d80c43a944811b1b8425a, type: 3}
+      value: {fileID: 21300000, guid: 78f74eaf410d1404bb27949fc64c28e2, type: 3}
     - time: 0.26666668
-      value: {fileID: 21300000, guid: 63029e4b043fc824bb8695e14d67c45f, type: 3}
+      value: {fileID: 21300000, guid: 36293216648d80c43a944811b1b8425a, type: 3}
     - time: 0.28333333
-      value: {fileID: 21300000, guid: ba1b8dbb5ddfdfc4e8fd31f7d9cde047, type: 3}
+      value: {fileID: 21300000, guid: 63029e4b043fc824bb8695e14d67c45f, type: 3}
     - time: 0.3
+      value: {fileID: 21300000, guid: ba1b8dbb5ddfdfc4e8fd31f7d9cde047, type: 3}
+    - time: 0.31666666
       value: {fileID: 21300000, guid: 80333c32a898a5543966adb1f39fd304, type: 3}
     attribute: m_Sprite
     path: 
@@ -100,7 +100,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.3166667
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -120,21 +120,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
+  - time: 0.15
     functionName: SetGrounded
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.033333335
+  - time: 0.16666667
     functionName: PlayEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.033333335
+  - time: 0.18333334
     functionName: SetGrounded
     data: 
     objectReferenceParameter: {fileID: 0}
