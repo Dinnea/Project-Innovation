@@ -32,12 +32,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
+       pauseMenu.SetActive(false);
         playButton.SetActive(false);
         pauseButton.SetActive(true);
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+       
         countdown.SetActive(true);
         
+
     }
     
     public void ExitGameScene()
