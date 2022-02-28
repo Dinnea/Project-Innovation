@@ -67,6 +67,7 @@ public class TwoDGyroController : MonoBehaviour
             {
                 if (!bounce.GetIsGrounded())
                 {
+                    Debug.Log("Moving!");
                     MoveXY_UsingRotationRate();
                 }
             }
