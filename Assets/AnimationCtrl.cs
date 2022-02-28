@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,20 +7,18 @@ public class AnimationCtrl : MonoBehaviour
 {
     public Animator pauseAnimator;
 
-    private bool slideIn = false;
-
-    public void PauseBtnMethod()
+    private void Start()
     {
-        if (slideIn == false)
-        {
-            slideIn = true;
-            pauseAnimator.SetBool("SlideIn",slideIn);
-        }
-        
-        else if (slideIn == true)
-        {
-            slideIn = false;
-            pauseAnimator.SetBool("SlideIn",slideIn);
-        }
+        pauseAnimator.Play("ButtonSlider");
+    }
+
+    public void PlaySlideIn()
+    {
+        pauseAnimator.SetBool("SlideIn", true);
+    }
+
+    public void PlaySlideOut()
+    {
+        pauseAnimator.SetBool("SlideIn", false);
     }
 }
