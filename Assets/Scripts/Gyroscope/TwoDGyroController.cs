@@ -54,7 +54,12 @@ public class TwoDGyroController : MonoBehaviour
 
     void Update()
     {
-        
+        if (!isEnabled) return;
+
+        checkBoundaries();
+
+        UpdateRotations();
+        ResetXYRotations();
     }
 
     private void FixedUpdate()
@@ -72,14 +77,10 @@ public class TwoDGyroController : MonoBehaviour
                 }
             }
         }
-
-        checkBoundaries();
     }
 
     void MoveXY_UsingRotationRate()
     {
-        UpdateRotations();
-        ResetXYRotations();
 
         t += Time.deltaTime;
         float scaledRotation = Mathf.Clamp(-rotationAroundX / upperClamp, 0, 1);
