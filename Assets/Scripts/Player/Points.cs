@@ -34,6 +34,11 @@ public class Points : MonoBehaviour
         SetPointsText();
     }
 
+    public float GetPoints()
+    {
+        return points;
+    }
+
     void SetPointsText()
     {
         text.text = points.ToString();

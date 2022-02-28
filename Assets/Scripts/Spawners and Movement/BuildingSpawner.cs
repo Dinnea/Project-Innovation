@@ -11,30 +11,21 @@ public class BuildingSpawner : MonoBehaviour
     public GameObject Background;
     public Transform Camera;
     public Transform currentPlatform;
+    public Points points;
 
     [Header(" ")]
     public float BackgroundHeight;
     public float CarBuildingDistance;
 
-    [Header("Y distance between buildings")]
-    public float minDistance;
-    public float maxDistance;
+    [Header("Waves")]
+    public Wave[] waves;
 
-    [Header("X offset buildings")]
-    public float minOffset;
-    public float maxOffset;
-
-    [Header("Drone distance")]
-    public float droneDistance;
-
-    [Header("Spawn chance")]
-    [Range(0.0f, 1.0f)]
-    public float carChance;
-    [Range(0.0f, 1.0f)]
-    public float droneChance;
+    public Wave currentWave;
 
     private Vector3 spawnPosition;
     private float currentBackgroundY = 0;
+
+    private int currentWaveNumber;
 
     private GameObject currentBackground;
     private GameObject previousBackground;
@@ -45,6 +36,12 @@ public class BuildingSpawner : MonoBehaviour
     private Transform previousPlatform;
 
     private List<Transform> platforms = new List<Transform>();
+
+    private void Start()
+    {
+        currentWaveNumber = 0;
+        currentWave = waves[currentWaveNumber];
+    }
 
     private void Update()
     {
@@ -59,17 +56,22 @@ public class BuildingSpawner : MonoBehaviour
 
             float chance = Random.Range(0.0f, 1.0f);
 
-            if (carChance > chance)
+            if (currentWave.carChance > chance)
             {
                 SpawnCar();
             }
-            else if (droneChance > chance)
+            else if (currentWave.droneChance > chance)
             {
                 SpawnDrone();
             }
         }
 
         DeletePlatforms();
+
+        if (currentWave.NextWaveAtPoints < points.GetPoints())
+        {
+            StartNextWave();
+        }
     }
 
     private void SpawnBackground()
@@ -95,12 +97,12 @@ public class BuildingSpawner : MonoBehaviour
         }
         else if (lastPlatformIsDrone)
         {
-            distance = droneDistance;
+            distance = currentWave.droneDistance;
             lastPlatformIsDrone = false;
         }
-        else distance = Random.Range(minDistance, maxDistance);
+        else distance = Random.Range(currentWave.minDistance, currentWave.maxDistance);
 
-        float offset = Random.Range(minOffset, maxOffset);
+        float offset = Random.Range(currentWave.minOffset, currentWave.maxOffset);
 
         previousPlatform = currentPlatform;
 
@@ -112,7 +114,7 @@ public class BuildingSpawner : MonoBehaviour
 
     private void SpawnCar()
     {
-        float distance = Random.Range(minDistance, maxDistance);
+        float distance = Random.Range(currentWave.minDistance, currentWave.maxDistance);
 
         previousPlatform = currentPlatform;
 
@@ -126,7 +128,7 @@ public class BuildingSpawner : MonoBehaviour
 
     private void SpawnDrone()
     {
-        float distance = droneDistance;
+        float distance = currentWave.droneDistance;
 
         previousPlatform = currentPlatform;
 
@@ -149,7 +151,15 @@ public class BuildingSpawner : MonoBehaviour
                     Destroy(p.gameObject);
                 }
             }
+        }
+    }
 
+    public void StartNextWave()
+    {
+        if (currentWaveNumber + 1 < waves.Length)
+        {
+            currentWaveNumber++;
+            currentWave = waves[currentWaveNumber];
         }
     }
 

@@ -1675,12 +1675,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9779027}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: points
+      value: 
+      objectReference: {fileID: 4897982258532673553}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: currentPlatform
       value: 
       objectReference: {fileID: 557492421}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: BackgroundHeight
       value: 46.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waveVariables.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].carChance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].maxOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].minOffset
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].droneChance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].maxDistance
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].minDistance
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].droneDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
+      propertyPath: waves.Array.data[0].NextWaveAtPoints
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2756734161804906523, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: m_Name
