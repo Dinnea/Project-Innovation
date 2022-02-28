@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223057, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223534, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: speed
@@ -765,6 +765,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &668419451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9211164370278185914, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+  m_PrefabInstance: {fileID: 540485285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &681456609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,7 +2155,7 @@ PrefabInstance:
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 668419451}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.size
       value: 1
