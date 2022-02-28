@@ -9,11 +9,14 @@ public class ScaleOnAmplitude : MonoBehaviour
     Material material;
     [Space]
     public float red, green, blue;
+    public bool scaleX, scaleY, scaleZ, is3D;
+    Vector3 defaultScale;
     //[SerializeField] float treshold = 0.2f;
 
-    private void Start()
+    private void Awake()
     {
-        material = GetComponent<MeshRenderer>().materials[0];
+        defaultScale = transform.localPosition;
+       if(is3D) material = GetComponent<MeshRenderer>().materials[0];
     }
 
     private void Update()
@@ -32,10 +35,17 @@ public class ScaleOnAmplitude : MonoBehaviour
     {
         if (amplitude > treshold)
         {
-            transform.localScale = new Vector3((amplitude * maxScale) + startScale, (amplitude * maxScale) + startScale, (amplitude * maxScale) + startScale);
-            Color color = new Color(red * amplitude, green * amplitude, blue * amplitude);
-            material.SetColor("_EmissionColor", color);
+            Vector3 newScale = new Vector3((amplitude * maxScale) + startScale, (amplitude * maxScale) + startScale, (amplitude * maxScale) + startScale);
+            if (!scaleX) newScale.x = defaultScale.x;
+            if (!scaleY) newScale.y = defaultScale.y;
+            if (!scaleZ) newScale.z = defaultScale.z;
+            transform.localScale = newScale;
+            if (is3D)
+            {
+                Color color = new Color(red * amplitude, green * amplitude, blue * amplitude);
+                material.SetColor("_EmissionColor", color);
+            }
         }
-        else transform.localScale = new Vector3(startScale, startScale, startScale);
+        else transform.localScale = defaultScale;
     }
 }
