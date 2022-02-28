@@ -5,12 +5,12 @@ using UnityEngine;
 public class MoveHelicopter : MonoBehaviour
 {
     public GameObject cam;
-    public float speed;
+    public float SlowSpeed;
+    public float FastSpeed;
     public float offsetY;
 
     public float countDown;
 
-    private bool hasHelicopterArrived;
     private float startTime;
 
     // Start is called before the first frame update
@@ -27,40 +27,29 @@ public class MoveHelicopter : MonoBehaviour
             return;
         }
 
-        //HelicopterDoesntLeaveScreen();
-
-
-        transform.Translate(new Vector3(0, 1, 0) * speed*Time.deltaTime);
-    }
-
-    void HelicopterDoesntLeaveScreen()
-    {
-        if (hasHelicopterArrived)
+        if (hasHelicopterArrived())
         {
-            transform.Translate(new Vector3(0, 1, 0) * speed);
-            StayInScreen();
+            transform.Translate(new Vector3(0, 1, 0) * SlowSpeed * Time.deltaTime);
         }
         else
         {
-            transform.Translate(new Vector3(0, 1, 0) * speed * 5);
-
-            if (transform.position.y > cam.transform.position.y + offsetY)
-            {
-                hasHelicopterArrived = true;
-            }
+            transform.Translate(new Vector3(0, 1, 0) * SlowSpeed * Time.deltaTime);
         }
+        
     }
 
-    void StayInScreen()
+    private bool hasHelicopterArrived()
     {
-        if (transform.position.y < cam.transform.position.y + offsetY)
+        if (transform.position.y > cam.transform.position.y + offsetY)
         {
-            transform.position = new Vector3(transform.position.x, cam.transform.position.y + offsetY, transform.position.z);
+            return true;
         }
+
+        return false;
     }
 
-    public void ChangeSpeed(float newSpeed)
+    public void ChangeSpeed(float speed)
     {
-        speed = newSpeed;
+        SlowSpeed = speed;
     }
 }

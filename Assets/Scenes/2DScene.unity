@@ -295,10 +295,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223057, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223534, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 9779024}
+    - target: {fileID: 671062658995223534, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 671062658995223534, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
+      propertyPath: offsetY
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 671062658995223534, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
+      propertyPath: FastSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 671062658995223534, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
+      propertyPath: SlowSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223535, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
@@ -1528,6 +1544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: countdown
       objectReference: {fileID: 0}
+    - target: {fileID: 3025858928455969710, guid: f3d42f0f59bb6df41aaec02c27d980f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3d42f0f59bb6df41aaec02c27d980f6, type: 3}
 --- !u!1 &1619458277 stripped
@@ -1541,7 +1561,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 
@@ -1846,7 +1866,7 @@ PrefabInstance:
       objectReference: {fileID: 44555657}
     - target: {fileID: 2286572164615125554, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: speedY
-      value: 0.3
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 2286572164615125554, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: arrowScale
@@ -2042,7 +2062,7 @@ PrefabInstance:
       objectReference: {fileID: 460227324}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.size

@@ -72,7 +72,6 @@ public class TwoDGyroController : MonoBehaviour
             {
                 if (!bounce.GetIsGrounded())
                 {
-                    Debug.Log("Moving!");
                     MoveXY_UsingRotationRate();
                 }
             }
@@ -151,6 +150,7 @@ public class TwoDGyroController : MonoBehaviour
         }
         defaultRotation = gyroScope.attitude;
 
+        //defaultRotation = Quaternion.Euler(gyroScope.attitude.eulerAngles.x, 0, 0);
         
         Debug.Log("NEW DefaultRotation: " + defaultRotation);
     }
