@@ -15,8 +15,8 @@ public class ScaleOnAmplitude : MonoBehaviour
 
     private void Awake()
     {
-        defaultScale = transform.localPosition;
-       if(is3D) material = GetComponent<MeshRenderer>().materials[0];
+        defaultScale = transform.localScale;
+        if(is3D) material = GetComponent<MeshRenderer>().materials[0];
     }
 
     private void Update()
