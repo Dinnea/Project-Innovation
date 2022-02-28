@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayContinue : MonoBehaviour
 {
-   public void GameUnpaused()
+
+    private void Awake()
+    {
+        
+    }
+    public void GameUnpaused()
     {
         Time.timeScale = 1;
         gameObject.SetActive(false);
