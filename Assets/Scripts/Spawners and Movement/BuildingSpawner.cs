@@ -8,6 +8,7 @@ public class BuildingSpawner : MonoBehaviour
     public GameObject BuildingPrefab;
     public GameObject CarPrefab;
     public GameObject DronePrefab;
+    public GameObject FlyingMoneyPrefab;
     public GameObject Background;
     public Transform Camera;
     public Transform currentPlatform;
@@ -63,6 +64,10 @@ public class BuildingSpawner : MonoBehaviour
             else if (currentWave.droneChance > chance)
             {
                 SpawnDrone();
+            }
+            else if (currentWave.moneyChance > chance)
+            {
+                SpawnFlyingMoney();
             }
         }
 
@@ -134,6 +139,20 @@ public class BuildingSpawner : MonoBehaviour
 
         Vector3 pos = new Vector3(Random.Range(-4.0f, 4.0f), previousPlatform.position.y + distance, 0);
         var d = Instantiate(DronePrefab, pos, Quaternion.identity);
+        currentPlatform = d.transform;
+        platforms.Add(d.transform);
+
+        lastPlatformIsDrone = true;
+    }
+
+    private void SpawnFlyingMoney()
+    {
+        float distance = currentWave.moneyDistance;
+
+        previousPlatform = currentPlatform;
+
+        Vector3 pos = new Vector3(currentPlatform.position.x, previousPlatform.position.y + distance, 0);
+        var d = Instantiate(FlyingMoneyPrefab, pos, Quaternion.identity);
         currentPlatform = d.transform;
         platforms.Add(d.transform);
 

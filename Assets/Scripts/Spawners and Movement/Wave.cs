@@ -15,12 +15,15 @@ public class Wave
     public float minOffset;
     public float maxOffset;
 
-    [Header("Drone distance")]
+    [Header("Drone and money distance")]
     public float droneDistance;
+    public float moneyDistance;
 
     [Header("Spawn chance")]
     [Range(0.0f, 1.0f)]
     public float carChance;
     [Range(0.0f, 1.0f)]
     public float droneChance;
+    [Range(0.0f, 1.0f)]
+    public float moneyChance;
 }
