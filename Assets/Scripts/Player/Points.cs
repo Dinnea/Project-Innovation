@@ -9,7 +9,7 @@ public class Points : MonoBehaviour
     public UnityEvent OnPointsGathered;
 
     [SerializeField]TextMeshProUGUI text;
-    float points = -100;
+    [SerializeField]float points = -100;
     bool haveCloudsSpawned = false;
 
     private void Update()

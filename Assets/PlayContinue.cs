@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayContinue : MonoBehaviour
 {
-
+    [SerializeField] GameObject pauseButton;
     private void Awake()
     {
         
@@ -12,6 +12,7 @@ public class PlayContinue : MonoBehaviour
     public void GameUnpaused()
     {
         Time.timeScale = 1;
+        pauseButton.SetActive(true);
         gameObject.SetActive(false);
     }
 }

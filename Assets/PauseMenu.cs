@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
        pauseMenu.SetActive(false);
         playButton.SetActive(false);
-        pauseButton.SetActive(true);
+        //pauseButton.SetActive(true);
        
         countdown.SetActive(true);
         
