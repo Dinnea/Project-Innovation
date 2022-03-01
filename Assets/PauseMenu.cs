@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
     public void ExitGameScene()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
 }
