@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6480093488442983470}
   - component: {fileID: 6480093488442983465}
+  - component: {fileID: 8357508904561459247}
   m_Layer: 0
   m_Name: cloud spawner
   m_TagString: Untagged
@@ -48,4 +49,29 @@ MonoBehaviour:
   lowerX: 0
   upperY: 5
   lowerY: 0
+  offsetY: 0
   spawnNtimes: 50
+  ThereAreClouds:
+    m_PersistentCalls:
+      m_Calls: []
+  NoClouds:
+    m_PersistentCalls:
+      m_Calls: []
+  searchCountdown: 1
+--- !u!114 &8357508904561459247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6480093488442983464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc23c0e9a9a6354ea8228e36ba466b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperX: 5
+  lowerX: -5
+  upperY: 3
+  lowerY: -5
+  offsetY: 10

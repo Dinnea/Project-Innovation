@@ -6,8 +6,6 @@ using UnityEngine;
 public class CloudSpawner : MonoBehaviour
 {
     [SerializeField] GameObject cloud;
-    [SerializeField] float upperX, lowerX, upperY, lowerY, offsetY;
-    [SerializeField]int spawnNtimes = 100;
     GameObject[] clouds;
     public UnityEvent ThereAreClouds;
     public UnityEvent NoClouds;
@@ -15,12 +13,14 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] float searchCountdown = 1f;
     float search;
     bool areClouds = false;
+    ICloudFactory cloudFactory;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        search = searchCountdown;//SpawnManyClouds(spawnNtimes);
+        search = searchCountdown;
+        cloudFactory = GetComponent<ICloudFactory>();
     }
 
     // Update is called once per frame
@@ -29,16 +29,9 @@ public class CloudSpawner : MonoBehaviour
         SearchForClouds();
     }
 
-    void SpawnCloud()
-    {
-        Vector3 position = new Vector3(Random.Range(lowerX, upperX), this.transform.position.y+ Random.Range(lowerY, upperY)+offsetY);
-        GameObject spawned = Instantiate(cloud, position, Quaternion.identity);
-        spawned.name = "cloud";
-    }
-
     public void SpawnManyClouds(int number)
     {
-        for (int i = 0; i < number; i++) SpawnCloud();
+        for (int i = 0; i < number; i++) cloudFactory.Spawn();
     }
 
     void SearchForClouds()
