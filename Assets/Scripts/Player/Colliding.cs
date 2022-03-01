@@ -20,7 +20,7 @@ public class Colliding : MonoBehaviour
         if (other.CompareTag("Collectible"))
         {
             OnHitCollectible?.Invoke();
-            Destroy(other.gameObject);
+            other.GetComponent<CollectAnimation>().OnCollected();
         }
     }
 
