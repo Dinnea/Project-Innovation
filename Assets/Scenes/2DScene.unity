@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223057, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223534, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: cam
@@ -1780,7 +1780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1519956299553204780, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_RootOrder
@@ -2072,6 +2072,10 @@ PrefabInstance:
     - target: {fileID: 686927408585150086, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: gyroScript
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707596034758049100, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1958965591170886470, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitEnemy.m_PersistentCalls.m_Calls.Array.size
