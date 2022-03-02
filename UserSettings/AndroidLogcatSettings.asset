@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
         "name": "com.TeamBased.Playtest",
-        "processId": 15290,
+        "processId": 23583,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,12 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.TeamBased.Playtest",
             "processId": 15290,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.Playtest",
+            "processId": 23583,
             "exited": false
         }
     ],
