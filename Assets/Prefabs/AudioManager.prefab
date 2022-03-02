@@ -58,3 +58,10 @@ MonoBehaviour:
     pitch: 0
     loop: 1
     source: {fileID: 0}
+  - name: UISound
+    clip: {fileID: 8300000, guid: 9ab957018476e8346a7d4f550a23e3d4, type: 3}
+    mGroup: {fileID: 6272084194225878022, guid: fe5dc2f9c5b38064e8cc22e0f2e5a163, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
