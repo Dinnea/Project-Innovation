@@ -5,39 +5,65 @@ using UnityEngine;
 public class BuildingSpawner : MonoBehaviour
 {
     [Header("Objects needed")]
-    public GameObject BuildingPrefab;
+    IInfiniteFactory buildingFactory;
+    IInfiniteFactory carFactory;
+    IInfiniteFactory droneFactory;
+    IInfiniteFactory moneyFactory;
+
     public GameObject CarPrefab;
     public GameObject DronePrefab;
     public GameObject FlyingMoneyPrefab;
-    public GameObject Background;
     public Transform Camera;
-    public Transform currentPlatform;
     public Points points;
 
+    [SerializeField] Transform firstBuilding;
+
     [Header(" ")]
-    public float BackgroundHeight;
-    public float CarBuildingDistance;
 
-    [Header("Waves")]
-    public Wave[] waves;
+    Wave currentWave;
 
-    public Wave currentWave;
+    static bool lastPlatformIsCar = false;
+    public static void SetLastPlatformIsCar(bool value)
+    {
+        lastPlatformIsCar = value;
+    }
+    public static bool GetLastPlatformIsCar()
+    {
+        return lastPlatformIsCar;
+    }
 
-    private float currentBackgroundY = 0;
+    static bool lastPlatformIsDrone = false;
+    public static void SetLastPlatformIsDrone(bool value)
+    {
+        lastPlatformIsDrone = value;
+    }
+    public static bool GetLastPlatformIsDrone()
+    {
+        return lastPlatformIsDrone;
+    }
 
-    private int currentWaveNumber;
+    static Transform currentObject;
+    public static void SetCurrentObject(Transform newObject)
+    {
+        currentObject = newObject;
+        objects.Add(newObject);
+    }
+    public static Transform GetCurrentObject()
+    {
+        return currentObject;
+    }
 
-    private bool lastPlatformIsCar;
-    private bool lastPlatformIsDrone;
-
-    private Transform previousPlatform;
-
-    private List<Transform> platforms = new List<Transform>();
-
+    static List<Transform> objects = new List<Transform>();
+    
     private void Start()
     {
-        currentWaveNumber = 0;
-        currentWave = waves[currentWaveNumber];
+        buildingFactory = GetComponent<BuildingFactory>();
+        carFactory = GetComponent<CarFactory>();
+        droneFactory = GetComponent<DroneFactory>();
+        moneyFactory = GetComponent<MoneyFactory>();
+
+        currentWave = WaveManager.GetCurrentWave();
+        currentObject = firstBuilding;
     }
 
     private void Update()
@@ -45,21 +71,21 @@ public class BuildingSpawner : MonoBehaviour
 
         if (NewPlatformNeeded())
         {
-            SpawnBuilding();
+            buildingFactory.Spawn();
 
             float chance = Random.Range(0.0f, 1.0f);
 
             if (currentWave.carChance > chance)
             {
-                SpawnCar();
+                carFactory.Spawn();
             }
             else if (currentWave.droneChance > chance)
             {
-                SpawnDrone();
+                droneFactory.Spawn();
             }
             else if (currentWave.moneyChance > chance)
             {
-                SpawnFlyingMoney();
+                moneyFactory.Spawn();
             }
         }
 
@@ -71,77 +97,10 @@ public class BuildingSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnBuilding()
-    {
-        float distance;
-
-        if (lastPlatformIsCar)
-        {
-            //building after car should be close to car
-            distance = CarBuildingDistance;
-            lastPlatformIsCar = false;
-        }
-        else if (lastPlatformIsDrone)
-        {
-            distance = currentWave.droneDistance;
-            lastPlatformIsDrone = false;
-        }
-        else distance = Random.Range(currentWave.minDistance, currentWave.maxDistance);
-
-        float offset = Random.Range(currentWave.minOffset, currentWave.maxOffset);
-
-        previousPlatform = currentPlatform;
-
-        Vector3 pos = new Vector3(offset, previousPlatform.position.y + distance, 0);
-        var b = Instantiate(BuildingPrefab, pos, Quaternion.identity);
-        currentPlatform = b.transform;
-        platforms.Add(b.transform);
-    }
-
-    private void SpawnCar()
-    {
-        float distance = Random.Range(currentWave.minDistance, currentWave.maxDistance);
-
-        previousPlatform = currentPlatform;
-
-        Vector3 pos = new Vector3(0, previousPlatform.position.y + distance, 0);
-        var b = Instantiate(CarPrefab, pos, Quaternion.identity);
-        currentPlatform = b.transform;
-        platforms.Add(b.transform);
-
-        lastPlatformIsCar = true;
-    }
-
-    private void SpawnDrone()
-    {
-        float distance = currentWave.droneDistance;
-
-        previousPlatform = currentPlatform;
-
-        Vector3 pos = new Vector3(Random.Range(-4.0f, 4.0f), previousPlatform.position.y + distance, 0);
-        var d = Instantiate(DronePrefab, pos, Quaternion.identity);
-        currentPlatform = d.transform;
-        platforms.Add(d.transform);
-
-        lastPlatformIsDrone = true;
-    }
-
-    private void SpawnFlyingMoney()
-    {
-        float distance = currentWave.moneyDistance;
-
-        previousPlatform = currentPlatform;
-
-        Vector3 pos = new Vector3(currentPlatform.position.x, previousPlatform.position.y + distance, 0);
-        var d = Instantiate(FlyingMoneyPrefab, pos, Quaternion.identity);
-        currentPlatform = d.transform;
-        platforms.Add(d.transform);
-        lastPlatformIsDrone = true;
-    }
 
     private void DeletePlatforms()
     {
-        foreach (Transform p in platforms)
+        foreach (Transform p in objects)
         {
             if (p != null)
             {
@@ -155,16 +114,12 @@ public class BuildingSpawner : MonoBehaviour
 
     public void StartNextWave()
     {
-        if (currentWaveNumber + 1 < waves.Length)
-        {
-            currentWaveNumber++;
-            currentWave = waves[currentWaveNumber];
-        }
+        WaveManager.NextWave();
     }
 
     bool NewPlatformNeeded()
     {
-        if (Camera.position.y + 12 > currentPlatform.position.y)
+        if (Camera.position.y + 12 > currentObject.position.y)
         {
             return true;
         }

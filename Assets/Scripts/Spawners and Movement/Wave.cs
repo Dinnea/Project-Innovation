@@ -26,4 +26,6 @@ public class Wave
     public float droneChance;
     [Range(0.0f, 1.0f)]
     public float moneyChance;
+
+    public float CarBuildingDistance = 4;
 }
