@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 497438658852859003}
   m_Layer: 0
   m_Name: CableCar
-  m_TagString: Safe
+  m_TagString: CableCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
