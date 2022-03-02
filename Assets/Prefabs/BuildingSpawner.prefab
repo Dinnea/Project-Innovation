@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2756734161804906525}
   - component: {fileID: 2756734161804906522}
+  - component: {fileID: 2861048031538039683}
+  - component: {fileID: 4270211400064361460}
+  - component: {fileID: 3803729334303918726}
+  - component: {fileID: 3444181760096136769}
   m_Layer: 0
   m_Name: BuildingSpawner
   m_TagString: Untagged
@@ -43,18 +47,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea7182c6eae3794e8f0b75a715888ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingPrefab: {fileID: 5161853169044958533, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
   CarPrefab: {fileID: 4851724540253419553, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
   DronePrefab: {fileID: 734620745506437852, guid: 6c72e3240e7de2c4d951b9cb995a3f7b, type: 3}
-  Background: {fileID: 8409318097134948881, guid: 2901898ca491ff94abe502323b5634e9, type: 3}
+  FlyingMoneyPrefab: {fileID: 0}
   Camera: {fileID: 0}
-  currentPlatform: {fileID: 0}
-  BackgroundHeight: 23
-  CarBuildingDistance: 4
-  minDistance: 7.5
-  maxDistance: 11
-  minOffset: -5
-  maxOffset: 5
-  droneDistance: 4
-  carChance: 0.3
-  droneChance: 0.5
+  points: {fileID: 0}
+  firstBuilding: {fileID: 0}
+--- !u!114 &2861048031538039683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756734161804906523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c2e951834da7340a83d0f6972d2832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4270211400064361460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756734161804906523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf1730fb5be4b14fad1fee99194f41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3803729334303918726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756734161804906523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c6eea39163ac4439c639d10ce8fe93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3444181760096136769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756734161804906523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7163d969ba1c5104aba30a90ca15ad46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

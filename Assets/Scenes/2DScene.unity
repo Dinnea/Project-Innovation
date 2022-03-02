@@ -882,7 +882,7 @@ MonoBehaviour:
     carChance: 0.3
     droneChance: 0.5
     moneyChance: 0.6
-    CarBuildingDistance: 0
+    CarBuildingDistance: 4
   - NextWaveAtPoints: 1000
     minDistance: 8
     maxDistance: 11
@@ -893,7 +893,7 @@ MonoBehaviour:
     carChance: 0.3
     droneChance: 0.5
     moneyChance: 0.6
-    CarBuildingDistance: 0
+    CarBuildingDistance: 4
 --- !u!4 &622552860
 Transform:
   m_ObjectHideFlags: 0
@@ -1238,59 +1238,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67695de3fb697c840955367762561ef3, type: 3}
---- !u!1 &900167168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2756734161804906523, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
-  m_PrefabInstance: {fileID: 2756734160904395209}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &900167169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900167168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c2e951834da7340a83d0f6972d2832, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &900167170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900167168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf1730fb5be4b14fad1fee99194f41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &900167171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900167168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c6eea39163ac4439c639d10ce8fe93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &900167172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900167168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7163d969ba1c5104aba30a90ca15ad46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &913903643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,6 +1430,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5161853169044958528, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5161853169044958529, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
       propertyPath: m_RootOrder
       value: 4
