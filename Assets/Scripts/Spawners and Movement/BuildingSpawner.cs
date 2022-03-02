@@ -23,13 +23,9 @@ public class BuildingSpawner : MonoBehaviour
 
     public Wave currentWave;
 
-    private Vector3 spawnPosition;
     private float currentBackgroundY = 0;
 
     private int currentWaveNumber;
-
-    private GameObject currentBackground;
-    private GameObject previousBackground;
 
     private bool lastPlatformIsCar;
     private bool lastPlatformIsDrone;
@@ -46,10 +42,6 @@ public class BuildingSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (NewBackgroundNeeded())
-        {
-            SpawnBackground();
-        }
 
         if (NewPlatformNeeded())
         {
@@ -77,17 +69,6 @@ public class BuildingSpawner : MonoBehaviour
         {
             StartNextWave();
         }
-    }
-
-    private void SpawnBackground()
-    {
-        spawnPosition.y = currentBackgroundY + BackgroundHeight;
-
-        if (previousBackground != null) Destroy(previousBackground);
-
-        previousBackground = currentBackground;
-        currentBackground = Instantiate(Background, spawnPosition, Quaternion.identity);
-        currentBackgroundY = spawnPosition.y;
     }
 
     private void SpawnBuilding()
@@ -155,7 +136,6 @@ public class BuildingSpawner : MonoBehaviour
         var d = Instantiate(FlyingMoneyPrefab, pos, Quaternion.identity);
         currentPlatform = d.transform;
         platforms.Add(d.transform);
-
         lastPlatformIsDrone = true;
     }
 
@@ -185,16 +165,6 @@ public class BuildingSpawner : MonoBehaviour
     bool NewPlatformNeeded()
     {
         if (Camera.position.y + 12 > currentPlatform.position.y)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    bool NewBackgroundNeeded()
-    {
-        if (Camera.position.y > currentBackgroundY)
         {
             return true;
         }
