@@ -6,6 +6,7 @@ using System;
 public class Colliding : MonoBehaviour
 {
     bool isSafe;
+    public bool isOnCableCar;
     public UnityEvent OnEnterBuilding;
     public UnityEvent OnHitEnemy;
     public UnityEvent OnHitCollectible;
@@ -15,6 +16,12 @@ public class Colliding : MonoBehaviour
         if (other.CompareTag("Safe"))
         {
             OnEnterBuilding?.Invoke();
+        }
+
+        if (other.CompareTag("CableCar"))
+        {
+            OnEnterBuilding?.Invoke();
+            isOnCableCar = true;
         }
 
         if (other.CompareTag("Collectible"))
@@ -30,6 +37,11 @@ public class Colliding : MonoBehaviour
         {
             isSafe = true;
         }
+        else if (other.CompareTag("CableCar"))
+        {
+            isSafe = true;
+            isOnCableCar = true;
+        }
         else if(other.CompareTag("Enemy"))
         {
             Debug.Log("u a ded bih");
@@ -43,11 +55,22 @@ public class Colliding : MonoBehaviour
         {
             isSafe = false;
         }
+
+        if (other.CompareTag("CableCar"))
+        {
+            isSafe = false;
+            isOnCableCar = false;
+        }
     }
 
     public bool GetIsSafe()
     {
         return isSafe;
+    }
+
+    public bool GetIsOnCableCar()
+    {
+        return isOnCableCar;
     }
 
     public void SetIsSafe(bool value)

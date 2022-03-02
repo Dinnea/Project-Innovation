@@ -16,14 +16,12 @@ public class CloudSpawner : MonoBehaviour
     ICloudFactory cloudFactory;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         search = searchCountdown;
         cloudFactory = GetComponent<ICloudFactory>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         SearchForClouds();

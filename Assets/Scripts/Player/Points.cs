@@ -8,15 +8,22 @@ public class Points : MonoBehaviour
 {
     public UnityEvent OnPointsGathered;
 
+    private Colliding colliding;
+
     [SerializeField]TextMeshProUGUI text;
     [SerializeField]float points = -100;
     bool haveCloudsSpawned = false;
+
+    private void Start()
+    {
+        colliding = GetComponent<Colliding>();
+    }
 
     private void Update()
     {
         if(points%1000 == 0 && points!=0)
         {
-            if (!haveCloudsSpawned)
+            if (!haveCloudsSpawned && !colliding.GetIsOnCableCar())
             {
                 OnPointsGathered?.Invoke();
                 haveCloudsSpawned = true;

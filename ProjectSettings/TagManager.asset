@@ -8,6 +8,7 @@ TagManager:
   - Safe
   - Cloud
   - Collectible
+  - CableCar
   layers:
   - Default
   - TransparentFX
