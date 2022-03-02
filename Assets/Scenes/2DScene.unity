@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48fb35c9fcb271640b22daa2ad823443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPointsGathered:
+  OnPointsAdded:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 1320452827}
@@ -1834,7 +1834,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 
@@ -2049,7 +2049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: waves.Array.data[1].carChance
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: waves.Array.data[1].maxOffset
@@ -2077,7 +2077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: waves.Array.data[1].droneChance
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: waves.Array.data[1].maxDistance
@@ -2089,7 +2089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: waves.Array.data[1].moneyChance
-      value: 0.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2756734161804906522, guid: 95b4d564edd481846921a80abf80a0e9, type: 3}
       propertyPath: waves.Array.data[0].droneDistance
@@ -2572,7 +2572,7 @@ PrefabInstance:
       objectReference: {fileID: 460227324}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.size
@@ -2601,6 +2601,10 @@ PrefabInstance:
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: cloudsInterval
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.size
@@ -2751,17 +2755,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 668419451}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 193020494}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 193020494}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCanSpawnClouds
+      objectReference: {fileID: 0}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2769,6 +2793,14 @@ PrefabInstance:
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SpawnManyClouds
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CloudSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2781,6 +2813,10 @@ PrefabInstance:
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

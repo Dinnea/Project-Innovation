@@ -6,39 +6,34 @@ using TMPro;
 
 public class Points : MonoBehaviour
 {
-    public UnityEvent OnPointsGathered;
-
-    private Colliding colliding;
+    public UnityEvent OnPointsAdded;
 
     [SerializeField]TextMeshProUGUI text;
     [SerializeField]float points = -100;
-    bool haveCloudsSpawned = false;
-
-    private void Start()
-    {
-        colliding = GetComponent<Colliding>();
-    }
+    //bool haveCloudsSpawned = false;
 
     private void Update()
     {
+        /*
         if(points%1000 == 0 && points!=0)
         {
-            if (!haveCloudsSpawned && !colliding.GetIsOnCableCar())
+            if (!haveCloudsSpawned)
             {
                 OnPointsGathered?.Invoke();
                 haveCloudsSpawned = true;
             }
-           
         }
         else if(haveCloudsSpawned == true)
         {
             haveCloudsSpawned = false;
         }
+        */
     }
     public void AddPoints(float pPoints)
     {
         points += pPoints;
         SetPointsText();
+        OnPointsAdded?.Invoke();
     }
 
     public float GetPoints()
