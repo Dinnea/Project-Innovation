@@ -6,16 +6,18 @@ using System;
 public class Colliding : MonoBehaviour
 {
     bool isSafe;
-    public bool isOnCableCar;
+    bool isOnCableCar;
+    public bool isOnBuilding = true;
     public UnityEvent OnEnterBuilding;
     public UnityEvent OnHitEnemy;
     public UnityEvent OnHitCollectible;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Safe"))
+        if (other.CompareTag("Building"))
         {
             OnEnterBuilding?.Invoke();
+            isOnBuilding = true;
         }
 
         if (other.CompareTag("CableCar"))
@@ -34,9 +36,10 @@ public class Colliding : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Safe"))
+        if (other.CompareTag("Building"))
         {
             isSafe = true;
+            isOnBuilding = true;
         }
         else if (other.CompareTag("CableCar"))
         {
@@ -52,9 +55,10 @@ public class Colliding : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Safe"))
+        if (other.CompareTag("Building"))
         {
             isSafe = false;
+            isOnBuilding = false;
         }
 
         if (other.CompareTag("CableCar"))
@@ -72,6 +76,11 @@ public class Colliding : MonoBehaviour
     public bool GetIsOnCableCar()
     {
         return isOnCableCar;
+    }
+
+    public bool GetIsOnBuilding()
+    {
+        return isOnBuilding;
     }
 
     public void SetIsSafe(bool value)

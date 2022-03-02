@@ -9,6 +9,7 @@ TagManager:
   - Cloud
   - Collectible
   - CableCar
+  - Building
   layers:
   - Default
   - TransparentFX
