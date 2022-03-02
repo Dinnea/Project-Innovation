@@ -27,6 +27,7 @@ public class Colliding : MonoBehaviour
         if (other.CompareTag("Collectible"))
         {
             OnHitCollectible?.Invoke();
+            FindObjectOfType<AudioManager>().Play("Collectible");
             other.GetComponent<CollectAnimation>().OnCollected();
         }
     }
