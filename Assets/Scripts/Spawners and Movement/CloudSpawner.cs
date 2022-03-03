@@ -13,7 +13,7 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] float searchCountdown = 1f;
     [SerializeField] float cloudsInterval;
     float search;
-    bool areClouds = false;
+    public static bool areClouds = false;
     ICloudFactory cloudFactory;
 
     bool isAtCloudSpawningPoint = false;
