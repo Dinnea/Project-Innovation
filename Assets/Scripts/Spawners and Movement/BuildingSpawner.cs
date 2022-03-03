@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BuildingSpawner : MonoBehaviour
 {
-    [Header("Objects needed")]
     IInfiniteFactory buildingFactory;
     IInfiniteFactory carFactory;
     IInfiniteFactory droneFactory;
