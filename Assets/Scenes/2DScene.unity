@@ -675,6 +675,14 @@ PrefabInstance:
       propertyPath: countdown
       value: 
       objectReference: {fileID: 319787623}
+    - target: {fileID: 2994391353537387581, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 160.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994391353537387581, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -321.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4881704156467464504, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1944,19 +1952,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1519956299553204780, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.62
       objectReference: {fileID: 0}
     - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.32
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2784,7 +2800,7 @@ PrefabInstance:
       objectReference: {fileID: 193020494}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsAdded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetCanSpawnClouds
+      value: SetCanCheck
       objectReference: {fileID: 0}
     - target: {fileID: 6718437973939433089, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnPointsGathered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState

@@ -12,11 +12,11 @@ public class SidewaysMove : MonoBehaviour
     void MoveBody(Rigidbody2D body, Vector3 from, Vector3 to, float time)
     {
         body.MovePosition(Vector3.Lerp(from, to, time));
-        if (transform.position.x <= Xpos1)
+       /* if (transform.position.x <= Xpos1)
         {
-            spriteRenderer.flipY = true;
+           //spriteRenderer.flipY = true;
         }
-        if (transform.position.x >= Xpos2) spriteRenderer.flipY = false;
+        if (transform.position.x >= Xpos2) spriteRenderer.flipY = false;*/
     }
 
    
