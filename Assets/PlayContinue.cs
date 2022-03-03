@@ -9,6 +9,10 @@ public class PlayContinue : MonoBehaviour
     {
         
     }
+    public void StartCountdown()
+    {
+        Time.timeScale = 0;
+    }
     public void GameUnpaused()
     {
         Time.timeScale = 1;
