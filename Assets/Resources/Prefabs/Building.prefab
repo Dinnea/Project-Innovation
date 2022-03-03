@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7782738669781518316}
   - component: {fileID: 5118822171561274170}
   - component: {fileID: 3582051240126044359}
+  - component: {fileID: -6839263451405681733}
   m_Layer: 0
   m_Name: Building
   m_TagString: Building
@@ -145,3 +146,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectiblePrefab: {fileID: 8435997920356420018, guid: c51ea62dbcdccba45927c2b1d577b8aa, type: 3}
+--- !u!114 &-6839263451405681733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161853169044958533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905d9489739cd3947ba093f79d8e8a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 2eb448c7b28dadc47b96d322715d3a49, type: 3}
+  - {fileID: 21300000, guid: 6dcafd3e8089be74c971fcd28e9e10ff, type: 3}
+  - {fileID: 21300000, guid: 32ab25f45a70bef4280b656587985b69, type: 3}
+  - {fileID: 21300000, guid: a0d96b7e389695a428828dfec4d5b31c, type: 3}
+  - {fileID: 21300000, guid: 6690a6a12cc385f4a80f21be14716407, type: 3}
+  - {fileID: 21300000, guid: 1cf967aef0103ca4181dc94dac9608e1, type: 3}
+  - {fileID: 21300000, guid: 24ba0a7717687eb4fad914ade200b599, type: 3}
+  - {fileID: 21300000, guid: 831685c5358d06c47881031522912f0b, type: 3}
+  - {fileID: 21300000, guid: 021fb74b8b684ff439df4a77bea0908f, type: 3}
