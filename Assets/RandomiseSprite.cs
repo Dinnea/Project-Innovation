@@ -12,11 +12,8 @@ public class RandomiseSprite : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         int normalChance = Mathf.FloorToInt(100.0f/ (sprites.Length-1));
-        Debug.Log("Chance " + normalChance);
         int smallChance = 100 - (normalChance * (sprites.Length - 1));
-        Debug.Log(smallChance);
         int randomChance = Random.Range(1, 101);
-        Debug.Log(randomChance);
         
         if (randomChance <= 12)
         {

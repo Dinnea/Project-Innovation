@@ -22,6 +22,7 @@ public class MoveHelicopter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(hasHelicopterArrived());
         if (Time.time - countDown < startTime)
         {
             return;
@@ -33,7 +34,7 @@ public class MoveHelicopter : MonoBehaviour
         }
         else
         {
-            transform.Translate(new Vector3(0, 1, 0) * SlowSpeed * Time.deltaTime);
+            transform.Translate(new Vector3(0, 1, 0) * FastSpeed * Time.deltaTime);
         }
         
     }

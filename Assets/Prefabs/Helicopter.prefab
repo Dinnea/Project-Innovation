@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  speed: 0.05
-  offsetY: -13
+  SlowSpeed: 2
+  FastSpeed: 5
+  offsetY: -15
   countDown: 1
 --- !u!70 &671062658995223533
 CapsuleCollider2D:

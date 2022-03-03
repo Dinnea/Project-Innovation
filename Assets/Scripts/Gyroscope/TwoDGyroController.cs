@@ -35,7 +35,7 @@ public class TwoDGyroController : MonoBehaviour
         Screen.orientation = ScreenOrientation.Portrait;
         if (SystemInfo.supportsGyroscope)
         {
-            Debug.Log("Gyro is available");
+            //Debug.Log("Gyro is available");
             gyroScope = Input.gyro;
             gyroScope.enabled = true;
             isEnabled = true;
@@ -43,13 +43,13 @@ public class TwoDGyroController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Gyro is not available");
+            //Debug.Log("Gyro is not available");
             isEnabled = false;
         }
 
         animator = character.GetComponentInChildren<Animator>();
         animLength = animator.GetCurrentAnimatorStateInfo(0).length;
-        Debug.Log("AnimLength: " + animLength);
+        //Debug.Log("AnimLength: " + animLength);
     }
 
     void Update()

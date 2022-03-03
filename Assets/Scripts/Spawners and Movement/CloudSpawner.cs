@@ -30,7 +30,7 @@ public class CloudSpawner : MonoBehaviour
         points = GetComponentInParent<Points>();
         colliding = GetComponentInParent<Colliding>();
 
-        Debug.Log("canSpawnNewClouds: " + canCheck);
+        //Debug.Log("canSpawnNewClouds: " + canCheck);
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class CloudSpawner : MonoBehaviour
 
         if (isAtCloudSpawningPoint && colliding.GetIsOnBuilding())
         {
-            Debug.Log("SPAWNING CLOUDS");
+           // Debug.Log("SPAWNING CLOUDS");
             SpawnManyClouds(50);
             isAtCloudSpawningPoint = false;
             canCheck = false;
@@ -66,7 +66,7 @@ public class CloudSpawner : MonoBehaviour
             {
                 if (areClouds)
                 {
-                    Debug.Log("no clouds");
+                   // Debug.Log("no clouds");
                     NoClouds?.Invoke();
                     areClouds = false;
                 }
@@ -74,7 +74,7 @@ public class CloudSpawner : MonoBehaviour
             }
             else if(!areClouds)
             {
-                Debug.Log("yes clouds");
+               // Debug.Log("yes clouds");
                 areClouds = true;
                 ThereAreClouds?.Invoke();
             }
@@ -84,7 +84,7 @@ public class CloudSpawner : MonoBehaviour
 
     public void SetCanCheck(bool value)
     {
-        Debug.Log(" set canSpawnNewClouds: " + value);
+        //Debug.Log(" set canSpawnNewClouds: " + value);
         canCheck = value;
     }
 }
