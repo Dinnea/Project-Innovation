@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,7 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223535, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.1
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223535, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -619,6 +619,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1235879996369271661, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467588418494834270, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467588418494834270, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -560.11
+      objectReference: {fileID: 0}
     - target: {fileID: 1727119554986213775, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -647,6 +659,10 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2446440595667138160, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2466537551169111937, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -663,13 +679,13 @@ PrefabInstance:
       propertyPath: countdown
       value: 
       objectReference: {fileID: 319787623}
-    - target: {fileID: 2994391353537387581, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 160.1
+    - target: {fileID: 2930801151495215751, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: boxMax
+      value: -560
       objectReference: {fileID: 0}
-    - target: {fileID: 2994391353537387581, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -321.2
+    - target: {fileID: 2930801151495215751, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
+      propertyPath: boxMin
+      value: -860
       objectReference: {fileID: 0}
     - target: {fileID: 4881704156467464504, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -831,7 +847,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2930801151495215751, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df6210b23d839e3408ea7f2b2084be3e, type: 3}
 --- !u!4 &557492421 stripped
 Transform:
