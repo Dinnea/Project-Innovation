@@ -6,19 +6,34 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    public AudioMixer musicMixer;
-
-    public AudioMixer effectsMixer;
+    public AudioMixer mainMixer;
 
     public void SetMusicVolume(float volume)
     {
-        musicMixer.SetFloat("Music", volume);
+        mainMixer.SetFloat("Music", volume);
+    }
+
+    public float GetMusicVolume()
+    {
+        float value;
+        bool result = mainMixer.GetFloat("Music", out value);
+
+        if (result) return value;
+        else return 0;
     }
 
     public void SetEffectsVolume(float volume)
     {
-        effectsMixer.SetFloat("Effects", volume);
+        mainMixer.SetFloat("Effects", volume);
+    }
+
+    public float GetEffectsVolume()
+    {
+        float value;
+        bool result = mainMixer.GetFloat("Effects", out value);
+
+        if (result) return value;
+        else return 0;
     }
 }
 
