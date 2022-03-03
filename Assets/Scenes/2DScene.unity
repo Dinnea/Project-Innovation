@@ -316,6 +316,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 671062658995223056, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b2d042eea12055f4cb6edecfa5c93734, type: 3}
     - target: {fileID: 671062658995223057, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_Name
       value: Helicopter
@@ -1729,6 +1733,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 671062658995223057, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
   m_PrefabInstance: {fileID: 378076750}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1502314464
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502314463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45363c279cb0aac46b1ebd5a7d484f9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &1502314468
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1841,7 +1864,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4897982258532673552}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619458277}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 
@@ -2635,7 +2658,7 @@ PrefabInstance:
       objectReference: {fileID: 460227324}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5265680101895711029, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: onFall.m_PersistentCalls.m_Calls.Array.size
