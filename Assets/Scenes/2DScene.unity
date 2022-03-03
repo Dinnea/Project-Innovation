@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 622552860}
   - component: {fileID: 622552859}
   m_Layer: 0
-  m_Name: uh
+  m_Name: WaveManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -958,6 +958,17 @@ MonoBehaviour:
     droneDistance: 4
     moneyDistance: 6
     carChance: 0.3
+    droneChance: 0.5
+    moneyChance: 0.6
+    CarBuildingDistance: 4
+  - NextWaveAtPoints: 1500
+    minDistance: 9
+    maxDistance: 12
+    minOffset: -6
+    maxOffset: 6
+    droneDistance: 4
+    moneyDistance: 6
+    carChance: 0.4
     droneChance: 0.5
     moneyChance: 0.6
     CarBuildingDistance: 4
@@ -1805,6 +1816,18 @@ PrefabInstance:
     - target: {fileID: 1519956299553204782, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519956301286730261, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.26666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519956301286730261, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.42352945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519956301286730261, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.078431375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63360a02822d5ac49816c66c2bc778f8, type: 3}
