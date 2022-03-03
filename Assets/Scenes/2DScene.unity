@@ -1029,7 +1029,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5161853169044958528, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5161853169044958529, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
       propertyPath: m_RootOrder
@@ -1081,7 +1081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7782738669781518316, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5161853169044958535, guid: 87eb0885a6e956b46aa68b3fbcbecaf3, type: 3}
@@ -2049,6 +2049,10 @@ PrefabInstance:
     - target: {fileID: 4851724540253419553, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
       propertyPath: m_Name
       value: CableCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851724540253419553, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7107221692629018546, guid: 4ded764003cde3b43881a221b65c23ae, type: 3}
       propertyPath: m_IsTrigger
