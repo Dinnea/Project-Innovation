@@ -96,6 +96,7 @@ public class BuildingSpawner : MonoBehaviour
 
         if (currentWave.NextWaveAtPoints < points.GetPoints())
         {
+            
             StartNextWave();
         }
     }
@@ -118,6 +119,7 @@ public class BuildingSpawner : MonoBehaviour
     public void StartNextWave()
     {
         WaveManager.NextWave();
+        currentWave = WaveManager.GetCurrentWave();
     }
 
     bool NewPlatformNeeded()

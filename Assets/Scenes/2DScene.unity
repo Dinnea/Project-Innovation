@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223057, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 671062658995223533, guid: bd3e8e45790e7684397966611473a3c6, type: 3}
       propertyPath: m_Size.x
@@ -1127,6 +1127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6502144fbb3c842aee408103c75f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: []
   inspector:
   - NextWaveAtPoints: 500
     minDistance: 7.5
@@ -1957,19 +1958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30aac3db532fb44187e12c10e0b3d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1619458289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619458277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e41f601cb586640abd12de61728d52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  money: 0
 --- !u!1001 &1648462037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3091,7 +3079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitEnemy.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -3118,6 +3106,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitEnemy.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnHitEnemy
       objectReference: {fileID: 0}
@@ -3134,6 +3126,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1440208868}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4897982258532673553}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnEnterBuilding.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -3146,7 +3142,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: AddPoints
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
@@ -3166,12 +3170,20 @@ PrefabInstance:
       value: Points, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Points, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnEnterBuilding.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitEnemy.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3183,6 +3195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978441803295402355, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+      propertyPath: OnHitCollectible.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

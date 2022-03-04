@@ -5,7 +5,8 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [Header("Waves")]
-    static List<Wave> waves = new List<Wave>();
+    static List<Wave> waves;
+    [SerializeField] List<Wave> debug;
     [SerializeField] List<Wave> inspector;
     static Wave currentWave;
     static int currentWaveNr;
@@ -13,12 +14,13 @@ public class WaveManager : MonoBehaviour
     private void Awake()
     {
         waves = inspector;
+        debug = inspector;
         SetCurrentWave(0);
     }
     public static void SetCurrentWave(int number)
     {
         currentWaveNr = number;
-        if (number < waves.Count) currentWave = waves[number];
+        if  (number < waves.Count) { currentWave = waves[number]; Debug.Log(currentWaveNr); }
         else Debug.Log("no more waves");
     }
     public static void NextWave()
