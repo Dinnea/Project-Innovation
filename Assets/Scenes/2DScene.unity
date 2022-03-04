@@ -1950,6 +1950,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e726d33a38eec2041942b8b5b8a8b597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1619458279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2286572164615125554, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
+  m_PrefabInstance: {fileID: 4897982258532673552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619458277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9043d7684cb234b46ad20d748dbb79fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1619458288 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5044614298013364580, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
@@ -2775,7 +2786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.size
@@ -2812,7 +2823,7 @@ PrefabInstance:
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 319787624}
+      objectReference: {fileID: 1619458279}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -2843,7 +2854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: StartCountdown
+      value: SetTAtZero
       objectReference: {fileID: 0}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: ThereAreClouds.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2899,7 +2910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: PlayContinue, Assembly-CSharp
+      value: TwoDGyroController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5606842561353735553, guid: 9d2910e35b9b4b74cb69777af3363a3b, type: 3}
       propertyPath: NoClouds.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument

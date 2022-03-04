@@ -30,7 +30,7 @@ public class MoveHelicopter : MonoBehaviour
         {
             if (CloudSpawner.areClouds)
             {
-                transform.Translate(new Vector3(0, 1, 0) * 0.2f * Time.deltaTime);
+                transform.Translate(new Vector3(0, 1, 0) * 0.5f * Time.deltaTime);
             }
             else transform.Translate(new Vector3(0, 1, 0) * SlowSpeed * Time.deltaTime);
         }
