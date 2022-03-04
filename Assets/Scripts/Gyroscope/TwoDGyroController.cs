@@ -127,18 +127,6 @@ public class TwoDGyroController : MonoBehaviour
 
     private void checkBoundaries()
     {
-        /*
-        if (character.transform.position.x > 6.5f)
-        {
-            character.transform.position = new Vector3(6.5f, character.transform.position.y);
-        }
-
-        if (character.transform.position.x < -6.5f)
-        {
-            character.transform.position = new Vector3(-6.5f, character.transform.position.y);
-        }
-        */
-
         character.transform.position = new Vector3(Mathf.Clamp(character.transform.position.x, -6.5f, 6.5f), character.transform.position.y);
     }
 
@@ -149,10 +137,6 @@ public class TwoDGyroController : MonoBehaviour
             Debug.Log("DefaultRotation: " + defaultRotation);
         }
         defaultRotation = gyroScope.attitude;
-
-        //defaultRotation = Quaternion.Euler(gyroScope.attitude.eulerAngles.x, 0, 0);
-        
-        Debug.Log("NEW DefaultRotation: " + defaultRotation);
     }
 
     public void SetTAtZero()

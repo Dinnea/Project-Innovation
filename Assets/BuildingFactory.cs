@@ -28,7 +28,11 @@ public class BuildingFactory : MonoBehaviour, IInfiniteFactory
             distance = currentWave.droneDistance;
             BuildingSpawner.SetLastPlatformIsDrone(false);
         }
-        else distance = Random.Range(currentWave.minDistance, currentWave.maxDistance);
+        else 
+        {
+            distance = Random.Range(currentWave.minDistance, currentWave.maxDistance);
+        }
+        
         float offset = Random.Range(currentWave.minOffset, currentWave.maxOffset);
 
         Vector3 pos = new Vector3(offset, BuildingSpawner.GetCurrentObject().position.y + distance, 0);

@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "R58M54DNQFP",
     "m_SelectedPackage": {
         "deviceId": "R58M54DNQFP",
-        "name": "com.TeamBased.Playtest",
-        "processId": 26236,
+        "name": "com.TeamBased.POGO",
+        "processId": 17724,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -96,6 +96,12 @@
             "deviceId": "R58M54DNQFP",
             "name": "com.TeamBased.Playtest",
             "processId": 26236,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M54DNQFP",
+            "name": "com.TeamBased.POGO",
+            "processId": 17724,
             "exited": false
         }
     ],

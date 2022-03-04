@@ -22,6 +22,7 @@ public class BuildingSpawner : MonoBehaviour
     Wave currentWave;
 
     static bool lastPlatformIsCar = false;
+
     public static void SetLastPlatformIsCar(bool value)
     {
         lastPlatformIsCar = value;
@@ -63,6 +64,9 @@ public class BuildingSpawner : MonoBehaviour
 
         currentWave = WaveManager.GetCurrentWave();
         currentObject = firstBuilding;
+
+        lastPlatformIsCar = false;
+        lastPlatformIsDrone = false;
     }
 
     private void Update()
