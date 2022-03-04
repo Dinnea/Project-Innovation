@@ -375,7 +375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e10f05e3e5f45742b192068e1345520, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6665066a2b9bbb4418aa9ad8c95ad082, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f83ed035a31a924dbd3bf76476c47a7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1969,7 +1969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680399990036197107, guid: 67695de3fb697c840955367762561ef3, type: 3}
       propertyPath: sounds.Array.data[0].volume
-      value: 0.507
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680399990036197107, guid: 67695de3fb697c840955367762561ef3, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5680399990036197107, guid: 67695de3fb697c840955367762561ef3, type: 3}
       propertyPath: sounds.Array.data[2].volume
@@ -2036,7 +2040,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f83ed035a31a924dbd3bf76476c47a7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
