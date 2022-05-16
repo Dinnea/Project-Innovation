@@ -7,7 +7,7 @@ public class HighScoreData
 {
     public List<float> savedScores;
 
-    public HighScoreData()
+    public HighScoreData(bool asdf)
     {
         savedScores = HighScores.scores;
     }

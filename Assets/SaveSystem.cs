@@ -10,7 +10,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath +"/scores.pogo";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        HighScoreData data = new HighScoreData();
+        HighScoreData data = new HighScoreData(true);
 
         formatter.Serialize(stream, data);
         stream.Close();

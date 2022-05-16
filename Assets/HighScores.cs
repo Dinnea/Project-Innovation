@@ -52,15 +52,23 @@ public class HighScores : MonoBehaviour
             texts[i].text = scores[i].ToString();
         }
 
-        SaveSystem.SaveHighScores();
     }
 
     public void LoadHighScoreData()
     {
-        HighScoreData data = SaveSystem.LoadData();
-        scores = data.savedScores.ToList();
+       
         UpdateHighScoreText();
     }
 
+    
+    public void Save()
+    {
+        SaveSystem.SaveHighScores();
+    }
+     public void Load()
+    {
+        HighScoreData data = SaveSystem.LoadData();
+        scores = data.savedScores;
+    }
 
 }
