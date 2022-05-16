@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioData : MonoBehaviour
 {
-    AudioClip audioClip;
+    [SerializeField]AudioClip audioClip;
     public bool useMic;
     public string selectedDevice;
 

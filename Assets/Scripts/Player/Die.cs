@@ -11,6 +11,7 @@ public class Die : MonoBehaviour
     [SerializeField]AudioSource death;
     [SerializeField]GameObject ui;
     public UnityEvent onFall;
+    public UnityEvent onDeath;
 
 
     private void Awake()
@@ -33,6 +34,7 @@ public class Die : MonoBehaviour
     {       
         ui.SetActive(true);
         Destroy(gameObject);
+        onDeath?.Invoke();
     }
 
     public void PlayDeathEffect()

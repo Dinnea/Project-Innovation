@@ -46,4 +46,9 @@ public class Points : MonoBehaviour
         text.text = points.ToString();
     }
 
+    public void SavePoints()
+    {
+        HighScores.CreateScore(points);
+    }
+
 }
