@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class HighScores : MonoBehaviour
     {
         DontDestroyOnLoad(this.transform.parent.gameObject);
         texts = GetComponentsInChildren<TextMeshProUGUI>();
+        LoadHighScoreData();
     }
 
     private void Update()
@@ -23,7 +25,7 @@ public class HighScores : MonoBehaviour
     }
 
 
-    public static void UpdateHighScores(float points)
+    public static void AddHighScore(float points)
     {
         bool add = true;
         foreach(float i in scores)
@@ -43,12 +45,21 @@ public class HighScores : MonoBehaviour
 
     }
 
-    public void ChangeHighScore()
+    public void UpdateHighScoreText()
     {
         for (int i = 0; i < scores.Count; i++)
         {
             texts[i].text = scores[i].ToString();
         }
+
+        SaveSystem.SaveHighScores();
+    }
+
+    public void LoadHighScoreData()
+    {
+        HighScoreData data = SaveSystem.LoadData();
+        scores = data.savedScores.ToList();
+        UpdateHighScoreText();
     }
 
 

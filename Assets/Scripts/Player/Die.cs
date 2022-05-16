@@ -33,8 +33,8 @@ public class Die : MonoBehaviour
     public void ExecuteDie()
     {       
         ui.SetActive(true);
-        Destroy(gameObject);
         onDeath?.Invoke();
+        gameObject.SetActive(false);
     }
 
     public void PlayDeathEffect()

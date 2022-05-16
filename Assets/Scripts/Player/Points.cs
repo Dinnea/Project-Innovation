@@ -48,7 +48,7 @@ public class Points : MonoBehaviour
 
     public void SavePoints()
     {
-        HighScores.UpdateHighScores(points);
+        HighScores.AddHighScore(points);
     }
 
 }
