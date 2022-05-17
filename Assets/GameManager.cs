@@ -7,11 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public void Restart()
     {
+        SaveSystem.SaveHighScores();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextScene()
     {
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -27,6 +29,6 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        
+       SaveSystem.SaveHighScores();
     }
 }
