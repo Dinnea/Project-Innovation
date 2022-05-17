@@ -16,7 +16,6 @@ public class HighScores : MonoBehaviour
     {
         DontDestroyOnLoad(this.transform.parent.gameObject);
         texts = GetComponentsInChildren<TextMeshProUGUI>();
-        LoadHighScoreData();
     }
 
     private void Update()
@@ -42,7 +41,6 @@ public class HighScores : MonoBehaviour
                 scores.RemoveAt(scores.Count - 1);
             }
         }
-
     }
 
     public void UpdateHighScoreText()
@@ -50,14 +48,9 @@ public class HighScores : MonoBehaviour
         for (int i = 0; i < scores.Count; i++)
         {
             texts[i].text = scores[i].ToString();
+            Debug.Log(scores[i]);
         }
 
-    }
-
-    public void LoadHighScoreData()
-    {
-       
-        UpdateHighScoreText();
     }
 
     

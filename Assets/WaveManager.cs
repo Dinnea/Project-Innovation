@@ -20,7 +20,7 @@ public class WaveManager : MonoBehaviour
     public static void SetCurrentWave(int number)
     {
         currentWaveNr = number;
-        if  (number < waves.Count) { currentWave = waves[number]; Debug.Log(currentWaveNr); }
+        if  (number < waves.Count)  currentWave = waves[number]; //Debug.Log(currentWaveNr);
         else Debug.Log("no more waves");
     }
     public static void NextWave()

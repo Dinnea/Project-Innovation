@@ -24,4 +24,9 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void OnApplicationQuit()
+    {
+        
+    }
 }

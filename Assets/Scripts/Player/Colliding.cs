@@ -48,7 +48,7 @@ public class Colliding : MonoBehaviour
         }
         else if(other.CompareTag("Enemy"))
         {
-            Debug.Log("u a ded bih");
+            //Debug.Log("u a ded bih");
             OnHitEnemy?.Invoke();
         }
     }
