@@ -9,7 +9,13 @@ The world class super criminal of Super Metropolis with a background as a hacker
 So why does Joshua want the P.O.G.O so badly? His phone died and he needs a new charger. Oh and I guess cause “it looks cool”.  
 Now, Joshua is chased by the SUPER FBI and has to escape from them using the P.O.G.O. to jump from rooftop to rooftop.
 
+![only jump](https://github.com/Dinnea/Project-Innovation/assets/74649337/10327fa9-6d43-4777-86a4-da0848b5ba36)
+![ONLY CLOUDS](https://github.com/Dinnea/Project-Innovation/assets/74649337/83f765a0-9756-4fbd-9677-10bd3ac1ae39)
+
+## UI
+
 ![image](https://github.com/Dinnea/Project-Innovation/assets/74649337/c3689420-ced4-4fcf-ad56-a23f7548bc4b)
-![nothing](https://github.com/Dinnea/Project-Innovation/assets/74649337/9b589de4-026d-48db-adb5-d9d1017f439a)
 ![image](https://github.com/Dinnea/Project-Innovation/assets/74649337/bb2de359-3f5a-485a-9aff-a118e0d43da7)
+
+
 
